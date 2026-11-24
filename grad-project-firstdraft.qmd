@@ -1,0 +1,268 @@
+---
+title: ""
+author: ""
+date: ""
+bibliography: references.bib
+citeproc: true
+format:
+  pdf:
+    pdf-engine: pdflatex
+    from: markdown+tex_math_dollars+tex_math_single_backslash
+    documentclass: article
+    papersize: letter
+    geometry:
+      - margin=1in
+    fig-format: pdf
+    fig-align: center
+    include-in-header:
+      text: |
+        \usepackage{amsmath, amssymb, amsthm}
+        \usepackage{float}
+        \usepackage{lastpage}
+        \usepackage{fancyhdr}
+        \usepackage{parskip}
+        \usepackage{hyperref}
+        \usepackage{xurl}
+        \usepackage{needspace}
+        \hypersetup{
+          colorlinks=true,
+          linkcolor=blue,
+          urlcolor=blue,
+          citecolor=blue,
+        }
+        \pagestyle{fancy}
+        \fancyhf{}
+        \fancyhead[L]{CS 289A Grad Project First Draft - Fall 2026 - Matthew Bernard, Shiqi Yang}
+        \fancyhead[R]{Page \thepage\ of \pageref{LastPage}}
+        \renewcommand{\headrulewidth}{0.4pt}
+        \renewcommand{\footrulewidth}{0pt}
+        \fancypagestyle{firstpage}{%
+          \fancyhf{}%
+          \renewcommand{\headrulewidth}{0pt}%
+        }
+        \makeatletter
+        \renewcommand{\pandocbounded}[1]{#1}
+        \makeatother
+        \setcounter{secnumdepth}{0}
+    include-before-body:
+      text: |
+        \thispagestyle{firstpage}
+        \noindent
+        \fbox{%
+        \begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+        \vspace{2pt}
+        \makebox[\linewidth][s]{CS 289A \hfill Fall 2026}%
+        \vspace{6pt}
+        \begin{center}
+        {\Large\bfseries Grad Project First Draft}
+        \end{center}
+        \vspace{4pt}
+        \makebox[\linewidth][s]{\textit{Matthew Bernard, Shiqi Yang} \hfill \textit{November 24, 2026}}%
+        \vspace{2pt}
+        \end{minipage}%
+        }
+        \vspace{1em}
+    keep-tex: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+\needspace{5\baselineskip}
+# Abstract
+
+Unsupervised post-training (UPT) adapts foundation models without ground-truth labels by using the model's own outputs as a training signal, but risks recursively reinforcing confidently wrong pseudo-labels across iterations [@survey_upt; @lee2013pseudo]. We study whether **self-consistency**—agreement across stochastic generations [@wang2022selfconsistency] or confidence derived from option probabilities—can serve as a reliable unsupervised post-training signal for visual question answering (VQA). Using `HuggingFaceTB/SmolVLM-500M-Instruct` [@marafioti2025smolvlm] on the image-only split of `lmms-lab/ScienceQA-IMG` [@lu2022learn], we establish a reproducible zero-shot greedy baseline of **0.6480 (324/500)** on a seed-0 test subset, diagnose a critical logit read-position bug in early softmax-over-options evaluation, and build a modular pipeline (`03_softmax_scores.py`, `04_build_pseudolabels.py`, `05_train_lora.py`, and `run_finetune.sh`) for consistency filtering at threshold $\tau$, LoRA fine-tuning [@hu2021lora], and comparisons against $\tau=0$ and oracle supervision. We report completed baseline and diagnostic findings here and detail the experimental protocol, expected trade-offs, and evaluation plan for the post-fine-tuning, ablation, and error-propagation analyses.
+
+\needspace{5\baselineskip}
+# Background
+
+Post-training of foundation models is the dominant paradigm for adapting pre-trained models to downstream tasks. Unlike pre-training, which requires massive labeled corpora, post-training uses smaller, targeted datasets to specialize or align model behavior. Recent surveys categorize post-training into fine-tuning, alignment, reasoning, efficiency, and integration/adaptation [@survey_posttraining]. **Unsupervised Post-Training (UPT)** is a regime in which no ground-truth supervision is used during adaptation—the model generates its own training signal [@survey_upt]. A central failure mode of UPT is *recursive error propagation*: pseudo-labels that are confidently wrong can reinforce model biases and degrade accuracy across successive post-training rounds [@survey_upt; @lee2013pseudo].
+
+\needspace{5\baselineskip}
+# Introduction
+
+Our overarching research question is whether a compact vision-language model's (VLM) VQA accuracy can be improved by post-training it on its own high-consensus outputs **without using any ground-truth training labels**. Following Path 1 (post-training a foundation model) [@survey_posttraining], we examine what governs effective unsupervised adaptation: the choice of unsupervised signal (multi-sample self-consistency [@wang2022selfconsistency] vs. option-level softmax confidence), data selection (thresholding pseudo-labels at $\tau$ vs. unfiltered $\tau=0$ or ground-truth oracle), and training/sampling hyperparameters (sample count $k$, temperature $T$, threshold $\tau$, LoRA rank [@hu2021lora], epochs, and number of post-training rounds).
+
+In this first draft, we document the completed infrastructure, dataset verification, zero-shot baseline, and softmax read-position diagnostic, while establishing the full structure and analytical framework for consistency-filtered LoRA fine-tuning, comparisons against greedy, $\tau=0$, and oracle baselines, prior-work context, pseudo-label quality diagnostics, and multi-round error propagation. Code and scripts are maintained at [github.com/matthew-bernard/cs289gradproject](https://github.com/matthew-bernard/cs289gradproject) (including the `shiqi/lora` branch and `results/` directory), and checkpoints are hosted at [huggingface.co/matthew-bernard/cs289-smolvlm-checkpoints](https://huggingface.co/matthew-bernard/cs289-smolvlm-checkpoints).
+
+\needspace{5\baselineskip}
+# Related Work
+
+## Post-Training of Foundation Models
+
+Post-training adapts pre-trained foundation models using targeted supervision or self-generated signals rather than full-scale pre-training, spanning fine-tuning, alignment, reasoning, efficiency, and integration/adaptation [@survey_posttraining]. Because our compute budget centers on a single 12 GB NVIDIA TITAN Xp GPU rather than 24 GB+ A100/L4 hardware, parameter-efficient Low-Rank Adaptation (LoRA) [@hu2021lora] in `bfloat16` (`float32` on CPU) is central to keeping memory overhead compact while adapting attention and MLP projections in the language backbone.
+
+## Unsupervised Post-Training
+
+Unsupervised post-training relies on self-generated supervision without ground-truth labels [@survey_upt]. While self-training and pseudo-labeling can reinforce valid decision boundaries when confidence is well-calibrated, noisy or overconfident pseudo-labels introduce confirmation bias and error accumulation across iterations [@lee2013pseudo; @guo2017calibration]—motivating explicit comparisons between filtered pseudo-labels ($\tau > 0$), unfiltered pseudo-labels ($\tau = 0$), ground-truth oracle labels, and multi-round error-propagation tracking.
+
+## Self-Consistency and Pseudo-Labeling
+
+Self-consistency aggregates multiple stochastic reasoning paths or completions and takes the most frequent answer (majority/mode vote) as a reliability signal [@wang2022selfconsistency]. In classic pseudo-labeling and semi-supervised learning, model predictions on unlabeled examples are sharpened or thresholded by confidence to augment training data [@lee2013pseudo]. In our pipeline, we pair stochastic sampling/mode extraction with an option-level softmax scoring variant (`03_softmax_scores.py`) and threshold-based pseudo-label construction (`04_build_pseudolabels.py`) that isolates high-confidence predictions (`conf >= tau`) while tracking coverage and pseudo-label precision.
+
+## Visual Question Answering
+
+We study multiple-choice scientific VQA on ScienceQA [@lu2022learn], using ground-truth answer labels strictly for evaluation and diagnostic upper-bound comparisons (oracle), never as a supervision signal for unsupervised post-training, while noting VQAv2 [@goyal2017making] as a stretch goal.
+
+\needspace{5\baselineskip}
+# Data
+
+## ScienceQA
+
+Our primary experiments use the image-only split `lmms-lab/ScienceQA-IMG` [@lu2022learn], while text-only rows from `derek-thomas/ScienceQA` are held out for secondary analysis. Row counts across splits are summarized below:
+
+| Dataset | Split | Total | Image+text | Text-only |
+|---|---|---:|---:|---:|
+| `lmms-lab/ScienceQA-IMG` | train | 6,218 | 6,218 | 0 |
+| | validation | 2,097 | 2,097 | 0 |
+| | test | 2,017 | 2,017 | 0 |
+| `derek-thomas/ScienceQA` | test | 4,241 | 2,017 | 2,224 |
+
+Row-alignment checks confirmed that the image+text subset of `derek-thomas/ScienceQA` on the test split matches `lmms-lab/ScienceQA-IMG` row-for-row (2,017 rows) [@lu2022learn], allowing us to focus main experiments on `lmms-lab/ScienceQA-IMG` and reserve text-only rows for secondary analysis.
+
+## VQAv2 (Stretch Goal)
+
+VQAv2 [@goyal2017making] remains a stretch goal only and is outside the core experimental scope of this draft.
+
+## Dataset Splits and Preprocessing
+
+The `validation` split is designated for hyperparameter tuning and model selection, while the `test` split is held out for evaluation. Zero-shot baseline evaluation uses a reproducible 500-question subset of the image-only `test` split sampled with `seed 0`, and our evaluation scripts also support targeted slice/subset runs and per-example JSONL checkpointing (`PreemptMode=REQUEUE` resilience). In `common.py`, multiple-choice prompts are formatted with an `" Answer:"` suffix and mapped to single-token option IDs across candidate letters (`A`–`H`).
+
+\needspace{5\baselineskip}
+# Methods
+
+## SmolVLM-500M-Instruct
+
+We use `HuggingFaceTB/SmolVLM-500M-Instruct` (~507.48M parameters; ~1.1 GB footprint in `bfloat16`) [@marafioti2025smolvlm]. Although the initial proposal assumed a 24 GB A100 or L4 GPU, experiments run on an SCF NVIDIA TITAN Xp (12 GB, CUDA 12.8, `PreemptMode=REQUEUE`) using conda environment `smolvlm` (Python 3.11, PyTorch `2.14.1+cu126`), where `bfloat16` / LoRA fits comfortably within memory. To ensure fault tolerance under job preemption, scripts append each evaluated record incrementally to JSONL files, and Hugging Face authentication (`HF_HOME` and token under `$HOME`) is configured across both `~/.bashrc` and `~/.profile` for `srun` and `sbatch` jobs.
+
+## Self-Consistency Sampling
+
+For each question, we generate multiple stochastic completions and measure answer agreement to form an unsupervised training signal [@wang2022selfconsistency].
+
+### Sampling Parameters
+
+The core sampling configuration uses $k=8$ stochastic samples at temperature $T > 0$ (proposal baseline $T=0.7$) [@wang2022selfconsistency], with $k$, $T$, and consistency threshold $\tau$ varied in ablations.
+
+### Mode and Frequency Extraction
+
+Across $k$ samples, the **mode** is the most frequent candidate option [@wang2022selfconsistency], and its **consistency frequency** is the mode count divided by $k$. In `04_build_pseudolabels.py`, candidate pseudo-labels are filtered by threshold $\tau$, producing filtered sets (`filtered_tau{T}.jsonl`), unfiltered pseudo-labels (`tau0.jsonl`), and ground-truth subsets (`oracle_tau{T}.jsonl`) alongside threshold coverage and pseudo-label accuracy diagnostics.
+
+## Consistency Filter
+
+The consistency filter retains examples whose agreement or confidence score meets threshold $\tau$, aiming to filter out ambiguous or error-prone items before LoRA fine-tuning [@lee2013pseudo]. To isolate the effect of filtering, we pair consistency-filtered training with two reference conditions:
+
+- **$\tau = 0$ (unfiltered pseudo-labels):** retains all model predictions regardless of confidence/agreement, testing whether raw self-training helps or harms due to noisy labels.
+- **Oracle ($\tau$ subset with ground truth):** substitutes ground-truth answers on the selected subset to separate pseudo-label noise from data-selection/coverage effects.
+
+## Softmax-over-Options Variant
+
+Alongside multi-sample consistency, `03_softmax_scores.py` implements an option-level softmax scoring variant over single-token option IDs (`A`–`H`).
+
+### Read Position
+
+An early softmax evaluation script read token probabilities immediately after the literal `"Answer:"` inside the prompt, where on 48 of 50 checked questions the model's top token was `" Answer"` rather than an option letter—causing the withdrawn `0.6700` figure on the 500-question run. Prefilling `" Answer:"` in the assistant turn and reading logits at the subsequent position fixes this misalignment; on a 50-question check, the corrected read position agreed with greedy decoding on 48 of 50 items, and the earlier 59-vs-48 greedy/softmax disagreement count was not statistically significant under a paired McNemar test [@dietterich1998approximate] ($p \approx 0.3$), so neither finding supports the claim that option softmax captures information greedy decoding misses.
+
+### Probability Normalization
+
+At the corrected decision position, `03_softmax_scores.py` extracts logits over valid option token IDs, records total probability mass on option tokens (`mass`), normalizes probabilities across available choices (`probs`), and computes top-option confidence (`conf = max(probs)`), while recognizing that raw softmax confidence in neural networks can be miscalibrated [@guo2017calibration].
+
+## LoRA Fine-Tuning
+
+In `05_train_lora.py` and `run_finetune.sh`, LoRA adapters [@hu2021lora] (`r=8`, `lora_alpha=16`, `lora_dropout=0.05` by default) are attached to linear projection layers in the language model's self-attention and MLP blocks. Prompt tokens are masked with `-100` so cross-entropy loss is computed exclusively on the target answer completion (`" {label}<end_of_utterance>"`), trained with `AdamW` and a linear learning-rate decay schedule (`LambdaLR`).
+
+\needspace{5\baselineskip}
+# Experiments
+
+## Baselines
+
+### Zero-Shot Greedy
+
+Evaluated on the reproducible 500-question image-only `test` subset (`seed 0`) [@lu2022learn], zero-shot greedy decoding achieves **0.6480 (324/500)** using one autoregressive decode ($\le 8$ tokens) per question.
+
+### Corrected Softmax
+
+Using the corrected assistant-prefill `" Answer:"` read position, the softmax-over-options scorer agreed with greedy decoding on 48/50 questions in initial verification, with full-scale and post-fine-tuning evaluations integrated via `03_softmax_scores.py` and `run_finetune.sh`.
+
+### Sampled-Mode ($k=8$)
+
+Evaluates majority/mode answer selection across $k=8$ stochastic samples at temperature $T>0$ [@wang2022selfconsistency], measuring both mode accuracy and consistency-accuracy calibration across thresholds $\tau$.
+
+### Oracle and $\tau=0$ Fine-Tuning Comparisons
+
+`run_finetune.sh` orchestrates LoRA fine-tuning [@hu2021lora] across `filtered_tau0.9`, `oracle_tau0.9`, and `tau0` pseudo-label sets so we can directly compare filtered self-training against unfiltered pseudo-labeling and ground-truth labels on identical or matched subsets.
+
+## Ablations
+
+We plan systematic ablations across sampling count $k$, consistency threshold $\tau$, sampling temperature $T$, LoRA rank $r$ [@hu2021lora], and number of training epochs (as well as `--no-image-splitting` and subset/split choices), comparing validation tuning behavior against held-out test performance.
+
+## Error-Propagation Study
+
+To test recursive error propagation in unsupervised post-training [@survey_upt; @lee2013pseudo], we structure multi-round fine-tuning where a model's post-trained predictions are used to generate pseudo-labels for a subsequent round (e.g., Round 1 $\rightarrow$ Round 2), tracking accuracy, error retention, and confidence calibration across rounds.
+
+\needspace{5\baselineskip}
+# Results and Discussion
+
+## Baseline Results
+
+| Variant | Accuracy | Forward passes per question | Notes |
+|---|---:|---|---|
+| Zero-shot greedy | 0.6480 (324/500) | 1 autoregressive decode ($\le 8$ tokens) | Reproducible `seed 0` image-only `test` subset [@lu2022learn] |
+
+Zero-shot greedy decoding (`0.6480`, `324/500`) serves as our primary reference point. Because the initial softmax run (`0.6700`) suffered from a read-position mismatch (`" Answer"` token dominance prior to assistant prefill) and showed no significant difference from greedy (McNemar [@dietterich1998approximate] $p \approx 0.3$), we treat corrected softmax and $k=8$ sampled mode [@wang2022selfconsistency] as diagnostic and post-training signals rather than claiming a free zero-shot accuracy gain.
+
+## Post-Fine-Tuning Results
+
+Full post-fine-tuning runs across `filtered_tau0.9`, `oracle_tau0.9`, and `tau0` (and associated evaluation logs in `results/` and checkpoints under `matthew-bernard/cs289-smolvlm-checkpoints`) are being consolidated into the final table; below we outline the expected analytical comparisons and how each condition will be interpreted once all runs complete.
+
+### Against Greedy Baseline
+
+Comparing each LoRA-adapted model [@hu2021lora] against the `0.6480` zero-shot greedy baseline tests whether self-supervised adaptation on model-generated targets improves VQA accuracy without ground-truth labels. A positive gain over `0.6480` under `filtered_tau` (without oracle labels) would indicate that high-consistency/high-confidence items reinforce valid visual-reasoning patterns; flat or negative performance would indicate that SmolVLM-500M's initial errors or narrow pseudo-label distributions limit self-improvement.
+
+### Against Oracle and $\tau=0$
+
+Comparing `filtered_tau` against both $\tau=0$ and `oracle_tau` decomposes post-training outcomes into two distinct mechanisms:
+
+- **Consistency filtering vs. $\tau=0$:** If `filtered_tau` outperforms $\tau=0$, filtering out low-agreement/low-confidence pseudo-labels successfully suppresses harmful label noise [@lee2013pseudo]; if $\tau=0$ matches or exceeds `filtered_tau`, aggressive filtering may be discarding informative training volume or inducing skew.
+- **Consistency filtering vs. Oracle:** The gap between `oracle_tau` and `filtered_tau` quantifies the **pseudo-label noise tax** on that exact subset, while the gap between `oracle_tau` and the full-set baseline quantifies **selection/coverage loss** from keeping only high-threshold examples.
+
+## Comparison with Prior Work
+
+Published vision-language and reasoning literature establishes important context for interpreting our `0.6480` zero-shot greedy baseline on image-only ScienceQA and our planned fine-tuning runs:
+
+- **Compact VLMs vs. larger multimodal and CoT models:** `SmolVLM-500M-Instruct` (~507.48M parameters, ~1.1 GB in `bfloat16`) is designed for low-memory, low-latency multimodal execution rather than frontier scale [@marafioti2025smolvlm], whereas larger models and chain-of-thought (CoT) / lecture-and-explanation reasoning methods on ScienceQA—such as few-shot CoT GPT-3 (reported at 75.17% on ScienceQA) and multimodal CoT formulations [@lu2022learn]—leverage substantially higher parameter counts or explicit multi-step rationales. Our compact single-GPU setup tests how far lightweight LoRA adaptation [@hu2021lora] can go under strict memory limits.
+- **Self-consistency and SFT vs. RL / UPT dynamics:** While majority voting over stochastic samples improves reasoning reliability in language models [@wang2022selfconsistency], recent comparative post-training findings indicate that supervised fine-tuning (SFT) can be more prone to memorization or format lock-in than reinforcement learning / outcome-driven updates [@survey_posttraining]. Evaluating consistency-filtered LoRA fine-tuning against $\tau=0$ and oracle supervision directly probes whether compact-VLM pseudo-SFT generalizes or memorizes noisy self-targets.
+
+## Pseudo-Label Quality
+
+Pseudo-label quality across thresholds $\tau$ is governed by a fundamental **coverage–precision trade-off** [@lee2013pseudo]:
+
+- Raising $\tau$ increases expected pseudo-label precision by restricting training to high-consensus / high-confidence predictions, but shrinks the number of retained training examples (`coverage`) and can skew the label or question-type distribution.
+- Lowering $\tau$ (toward $\tau=0$) maximizes sample count at the cost of admitting noisier pseudo-labels.
+- Crucially, high model confidence (`conf` near `1.0` in option softmax or high sample agreement) does **not** guarantee correctness: neural networks and VLMs can be overconfident on wrong predictions [@guo2017calibration; @marafioti2025smolvlm] on visually ambiguous or domain-specific science questions, making threshold calibration and oracle precision curves essential diagnostics in `04_build_pseudolabels.py`.
+
+## Error Propagation
+
+Recursive error propagation occurs when wrong pseudo-labels from an earlier round are treated as ground truth in a later round, reinforcing spurious correlations or confident mistakes across iterations [@survey_upt; @lee2013pseudo]. When evaluating Round 1 vs. Round 2 post-training, we will inspect not only overall test accuracy (using paired significance checks such as McNemar's test [@dietterich1998approximate] where appropriate), but also:
+
+1. **Flip rates (correct $\rightarrow$ wrong vs. wrong $\rightarrow$ correct):** whether post-training fixes baseline mistakes or introduces new errors on previously correct items.
+2. **Error persistence on retained pseudo-labels:** whether errors present in pseudo-labels persist in the adapted model's predictions.
+3. **Confidence / agreement inflation:** whether fine-tuning artificially inflates `conf` or sample consensus without a corresponding rise in true accuracy [@guo2017calibration].
+
+# Limitations and Threats to Validity
+
+Our experimental setup has several limitations and potential threats to validity:
+
+- **Compute, model, and dataset scope:** Main experiments are conducted on a single 12 GB NVIDIA TITAN Xp GPU, a single compact model (`SmolVLM-500M-Instruct`) [@marafioti2025smolvlm], and a single primary dataset (`lmms-lab/ScienceQA-IMG` image-only) [@lu2022learn], with VQAv2 [@goyal2017making] treated only as a stretch goal and text-only rows held out for secondary analysis.
+- **Unused metadata and evaluation scope:** Question `hint` fields are not used in the current prompt pipeline, and subset evaluations (`n=500` or smaller slices) may have wider confidence intervals than full-split evaluations.
+- **Class imbalance and threshold skew:** Filtering by $\tau$ can create class imbalance or over-represent easier questions, potentially biasing LoRA updates [@hu2021lora; @lee2013pseudo].
+- **Schedule slippage and pipeline alignment:** Baseline and initial LoRA milestones shifted from the original proposal timeline (baseline completed Nov 3; first LoRA rounds scheduled after Nov 6) as we measured consistency distributions and resolved the softmax read-position bug, and we must keep $k=8$ sampling terminology [@wang2022selfconsistency] and option-softmax scoring (`03_softmax_scores.py`) clearly distinguished in final tables.
+
+# Conclusion
+
+We have established the empirical baseline, dataset alignment, and training/evaluation pipeline for studying unsupervised post-training via self-consistency on `SmolVLM-500M-Instruct` [@marafioti2025smolvlm] and `lmms-lab/ScienceQA-IMG` [@lu2022learn]. The zero-shot greedy baseline stands at **0.6480 (324/500)** on the seed-0 500-question test subset, early softmax read-position pitfalls have been diagnosed and corrected, and our scripts support thresholded pseudo-label construction, LoRA fine-tuning [@hu2021lora], and comparisons against $\tau=0$ and oracle baselines. Completing the full post-fine-tuning runs, ablations, and multi-round error-propagation analyses will allow us to directly answer whether self-consistency provides a reliable, error-resistant unsupervised training signal for compact VLMs.
+
+# References
+
+::: {#refs}
+:::
