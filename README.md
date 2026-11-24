@@ -10,7 +10,7 @@ measure the effect on ScienceQA accuracy.
 ## Documents
 - First draft: `grad-project-firstdraft.qmd` / `grad-project-firstdraft.pdf`
 - Progress report: `grad-project-progress.qmd` / `grad-project-progress.pdf`
-- Outline: `grad-project-outline.qmd` / `grad-project-outline.pdf` 
+- Outline: `grad-project-outline.qmd` / `grad-project-outline.pdf`
 - Proposal: `grad-project-proposal.qmd` / `grad-project-proposal.pdf`
 
 ## Data
