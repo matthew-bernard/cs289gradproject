@@ -42,11 +42,28 @@ used for the training signal) and measure the effect on ScienceQA accuracy.
 
 ## Pipeline
 
-    scripts/00_download_data.py      # fetch + cache ScienceQA
-    scripts/01_baseline_eval.py      # zero-shot baseline
-    scripts/02_self_consistency.py   # k-sampling + softmax consistency
-    scripts/03_posttrain_lora.py     # (TBD) LoRA fine-tuning
-    scripts/04_ablate.py             # (TBD) ablation grid
+    scripts/00_scienceqa_counts.py     # split sizes, image vs text-only
+    scripts/01_baseline_eval.py        # zero-shot greedy baseline
+    scripts/02_softmax_eval.py         # original softmax (wrong read position, kept for reference)
+    scripts/common.py                  # shared model, prompt, and dataset helpers
+    scripts/03_softmax_scores.py       # corrected softmax: prefill " Answer:", read P(letter)
+    scripts/04_build_pseudolabels.py   # filter by confidence tau; filtered / tau0 / oracle sets
+    scripts/05_train_lora.py           # LoRA fine-tuning on a {idx, label} training set
+
+The fine-tuning loop, run from `scripts/` (works on CUDA, Apple MPS, or CPU):
+
+    # 1. score the train and validation splits with the base model
+    python 03_softmax_scores.py --split train      --out ../results/scores/base_train.jsonl
+    python 03_softmax_scores.py --split validation --out ../results/scores/base_val.jsonl
+    # 2. pick tau from the validation quality table, then build the three training sets
+    python 04_build_pseudolabels.py --scores ../results/scores/base_val.jsonl
+    python 04_build_pseudolabels.py --scores ../results/scores/base_train.jsonl --tau 0.9 \
+        --outdir ../data/pseudolabels
+    # 3. train one adapter per training set
+    python 05_train_lora.py --train ../data/pseudolabels/filtered_tau0.9.jsonl --out ../checkpoints/filtered
+    # 4. evaluate an adapter on the test subset
+    python 03_softmax_scores.py --split test --n 500 --adapter ../checkpoints/filtered \
+        --out ../results/scores/filtered_test500.jsonl
 
 ## Compute
 

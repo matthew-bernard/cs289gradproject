@@ -1,0 +1,500 @@
+{"idx": 0, "pred": "B", "gold": "B", "ok": true, "conf": 0.995333, "mass": 0.999997, "probs": {"A": 5.8e-05, "B": 0.995333, "C": 0.004609}}
+{"idx": 2, "pred": "B", "gold": "B", "ok": true, "conf": 0.999993, "mass": 0.999996, "probs": {"A": 7e-06, "B": 0.999993}}
+{"idx": 3, "pred": "C", "gold": "B", "ok": false, "conf": 0.999349, "mass": 0.999997, "probs": {"A": 2.1e-05, "B": 7.5e-05, "C": 0.999349, "D": 0.000553, "E": 2e-06}}
+{"idx": 4, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 6, "pred": "D", "gold": "D", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}}
+{"idx": 18, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999995, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 25, "pred": "C", "gold": "C", "ok": true, "conf": 0.986784, "mass": 0.999994, "probs": {"A": 0.000794, "B": 0.012422, "C": 0.986784}}
+{"idx": 27, "pred": "A", "gold": "A", "ok": true, "conf": 0.998084, "mass": 0.999996, "probs": {"A": 0.998084, "B": 0.00091, "C": 0.000803, "D": 0.000203}}
+{"idx": 28, "pred": "B", "gold": "A", "ok": false, "conf": 0.996171, "mass": 0.999972, "probs": {"A": 0.002798, "B": 0.996171, "C": 0.000802, "D": 0.00023}}
+{"idx": 29, "pred": "C", "gold": "B", "ok": false, "conf": 0.904536, "mass": 0.999939, "probs": {"A": 0.000126, "B": 0.095337, "C": 0.904536}}
+{"idx": 30, "pred": "C", "gold": "A", "ok": false, "conf": 0.990752, "mass": 0.999812, "probs": {"A": 0.005199, "B": 0.004049, "C": 0.990752}}
+{"idx": 33, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 38, "pred": "B", "gold": "C", "ok": false, "conf": 0.982443, "mass": 0.999996, "probs": {"A": 0.01588, "B": 0.982443, "C": 0.001477, "D": 0.0002}}
+{"idx": 44, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 46, "pred": "C", "gold": "B", "ok": false, "conf": 1.0, "mass": 0.999982, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 54, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 64, "pred": "C", "gold": "C", "ok": true, "conf": 0.999698, "mass": 0.999999, "probs": {"A": 1e-06, "B": 5e-06, "C": 0.999698, "D": 0.000296}}
+{"idx": 67, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999996, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 73, "pred": "C", "gold": "A", "ok": false, "conf": 0.548918, "mass": 0.997011, "probs": {"A": 0.293815, "B": 0.157268, "C": 0.548918}}
+{"idx": 74, "pred": "B", "gold": "B", "ok": true, "conf": 0.99999, "mass": 0.999998, "probs": {"A": 2e-06, "B": 0.99999, "C": 3e-06, "D": 5e-06}}
+{"idx": 79, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 80, "pred": "B", "gold": "A", "ok": false, "conf": 0.999512, "mass": 0.999986, "probs": {"A": 0.000488, "B": 0.999512}}
+{"idx": 82, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999996, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 83, "pred": "B", "gold": "B", "ok": true, "conf": 0.999995, "mass": 0.999998, "probs": {"A": 5e-06, "B": 0.999995}}
+{"idx": 84, "pred": "C", "gold": "A", "ok": false, "conf": 0.534839, "mass": 0.999968, "probs": {"A": 0.049748, "B": 0.286279, "C": 0.534839, "D": 0.009796, "E": 0.119339}}
+{"idx": 86, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 92, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 1e-06, "B": 1.0}}
+{"idx": 93, "pred": "B", "gold": "B", "ok": true, "conf": 0.690932, "mass": 0.999996, "probs": {"A": 0.020864, "B": 0.690932, "C": 0.000181, "D": 0.288023}}
+{"idx": 95, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999977, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 98, "pred": "B", "gold": "A", "ok": false, "conf": 0.999997, "mass": 0.999964, "probs": {"A": 3e-06, "B": 0.999997}}
+{"idx": 102, "pred": "A", "gold": "A", "ok": true, "conf": 0.998424, "mass": 0.999994, "probs": {"A": 0.998424, "B": 0.000487, "C": 0.00038, "D": 0.000709}}
+{"idx": 118, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 125, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 127, "pred": "A", "gold": "A", "ok": true, "conf": 0.965943, "mass": 0.999997, "probs": {"A": 0.965943, "B": 0.033053, "C": 0.000998, "D": 7e-06}}
+{"idx": 128, "pred": "B", "gold": "B", "ok": true, "conf": 0.999968, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.999968, "C": 4e-06, "D": 2.8e-05}}
+{"idx": 130, "pred": "B", "gold": "B", "ok": true, "conf": 0.679114, "mass": 0.99999, "probs": {"A": 9.5e-05, "B": 0.679114, "C": 0.320791}}
+{"idx": 141, "pred": "B", "gold": "B", "ok": true, "conf": 0.999999, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.999999, "C": 0.0, "D": 1e-06}}
+{"idx": 143, "pred": "B", "gold": "B", "ok": true, "conf": 0.999995, "mass": 0.999998, "probs": {"A": 0.0, "B": 0.999995, "C": 5e-06}}
+{"idx": 145, "pred": "B", "gold": "A", "ok": false, "conf": 0.999983, "mass": 0.999999, "probs": {"A": 1.7e-05, "B": 0.999983}}
+{"idx": 147, "pred": "B", "gold": "A", "ok": false, "conf": 0.999925, "mass": 0.99997, "probs": {"A": 7.5e-05, "B": 0.999925}}
+{"idx": 151, "pred": "D", "gold": "A", "ok": false, "conf": 0.987796, "mass": 0.999996, "probs": {"A": 0.001157, "B": 0.010973, "C": 7.4e-05, "D": 0.987796}}
+{"idx": 161, "pred": "B", "gold": "B", "ok": true, "conf": 0.430223, "mass": 0.999991, "probs": {"A": 0.004218, "B": 0.430223, "C": 0.260943, "D": 0.295687, "E": 0.008929}}
+{"idx": 164, "pred": "A", "gold": "A", "ok": true, "conf": 1.0, "mass": 0.999985, "probs": {"A": 1.0, "B": 0.0}}
+{"idx": 165, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 166, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 168, "pred": "B", "gold": "A", "ok": false, "conf": 0.974042, "mass": 0.999994, "probs": {"A": 0.0, "B": 0.974042, "C": 0.025957}}
+{"idx": 170, "pred": "B", "gold": "D", "ok": false, "conf": 0.99535, "mass": 0.999998, "probs": {"A": 4e-05, "B": 0.99535, "C": 1e-06, "D": 0.004609}}
+{"idx": 183, "pred": "C", "gold": "C", "ok": true, "conf": 0.999992, "mass": 0.999997, "probs": {"A": 7e-06, "B": 1e-06, "C": 0.999992}}
+{"idx": 186, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 187, "pred": "B", "gold": "C", "ok": false, "conf": 0.986784, "mass": 0.999997, "probs": {"A": 0.000794, "B": 0.986784, "C": 0.012422}}
+{"idx": 191, "pred": "C", "gold": "B", "ok": false, "conf": 0.997199, "mass": 0.999964, "probs": {"A": 0.0, "B": 0.002801, "C": 0.997199}}
+{"idx": 194, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 200, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.99999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 202, "pred": "A", "gold": "C", "ok": false, "conf": 0.973137, "mass": 0.999888, "probs": {"A": 0.973137, "B": 0.003977, "C": 0.022886}}
+{"idx": 203, "pred": "B", "gold": "A", "ok": false, "conf": 0.731059, "mass": 0.999946, "probs": {"A": 0.268941, "B": 0.731059}}
+{"idx": 205, "pred": "A", "gold": "B", "ok": false, "conf": 0.997817, "mass": 0.999248, "probs": {"A": 0.997817, "B": 0.002183}}
+{"idx": 206, "pred": "B", "gold": "B", "ok": true, "conf": 0.999447, "mass": 0.999998, "probs": {"A": 0.000553, "B": 0.999447}}
+{"idx": 207, "pred": "B", "gold": "A", "ok": false, "conf": 0.851309, "mass": 0.999997, "probs": {"A": 0.147935, "B": 0.851309, "C": 0.000222, "D": 0.000534}}
+{"idx": 222, "pred": "B", "gold": "A", "ok": false, "conf": 0.995818, "mass": 0.999999, "probs": {"A": 5.8e-05, "B": 0.995818, "C": 0.00407, "D": 3e-06, "E": 5.1e-05}}
+{"idx": 223, "pred": "C", "gold": "A", "ok": false, "conf": 0.904247, "mass": 0.999997, "probs": {"A": 0.000143, "B": 0.000303, "C": 0.904247, "D": 0.095307}}
+{"idx": 235, "pred": "A", "gold": "A", "ok": true, "conf": 0.987568, "mass": 0.999988, "probs": {"A": 0.987568, "B": 0.012432}}
+{"idx": 236, "pred": "B", "gold": "A", "ok": false, "conf": 0.996827, "mass": 0.999991, "probs": {"A": 0.003173, "B": 0.996827}}
+{"idx": 237, "pred": "B", "gold": "D", "ok": false, "conf": 0.573258, "mass": 0.999996, "probs": {"A": 0.032341, "B": 0.573258, "C": 0.000407, "D": 0.393994}}
+{"idx": 239, "pred": "B", "gold": "A", "ok": false, "conf": 0.999983, "mass": 0.999992, "probs": {"A": 1.7e-05, "B": 0.999983}}
+{"idx": 240, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 243, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 245, "pred": "B", "gold": "B", "ok": true, "conf": 0.999942, "mass": 0.999988, "probs": {"A": 5.8e-05, "B": 0.999942}}
+{"idx": 253, "pred": "B", "gold": "A", "ok": false, "conf": 0.999995, "mass": 0.999996, "probs": {"A": 5e-06, "B": 0.999995}}
+{"idx": 254, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 255, "pred": "A", "gold": "A", "ok": true, "conf": 0.999196, "mass": 0.999994, "probs": {"A": 0.999196, "B": 0.000804}}
+{"idx": 265, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999995, "probs": {"A": 0.0, "B": 1e-06, "C": 1.0}}
+{"idx": 266, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 267, "pred": "B", "gold": "B", "ok": true, "conf": 0.999974, "mass": 0.999999, "probs": {"A": 2.4e-05, "B": 0.999974, "C": 2e-06}}
+{"idx": 271, "pred": "A", "gold": "A", "ok": true, "conf": 0.997817, "mass": 0.99993, "probs": {"A": 0.997817, "B": 0.002183}}
+{"idx": 273, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 276, "pred": "C", "gold": "D", "ok": false, "conf": 0.999824, "mass": 0.999999, "probs": {"A": 2.1e-05, "B": 3.1e-05, "C": 0.999824, "D": 0.000123}}
+{"idx": 283, "pred": "A", "gold": "B", "ok": false, "conf": 0.979647, "mass": 0.999999, "probs": {"A": 0.979647, "B": 0.020332, "C": 1e-05, "D": 1.1e-05}}
+{"idx": 285, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999993, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 286, "pred": "B", "gold": "A", "ok": false, "conf": 0.970608, "mass": 0.999983, "probs": {"A": 0.02931, "B": 0.970608, "C": 8.2e-05}}
+{"idx": 291, "pred": "B", "gold": "A", "ok": false, "conf": 0.999842, "mass": 0.999995, "probs": {"A": 0.000158, "B": 0.999842}}
+{"idx": 299, "pred": "B", "gold": "A", "ok": false, "conf": 0.99999, "mass": 0.999998, "probs": {"A": 0.0, "B": 0.99999, "C": 1e-05}}
+{"idx": 300, "pred": "B", "gold": "A", "ok": false, "conf": 0.999998, "mass": 0.999999, "probs": {"A": 2e-06, "B": 0.999998}}
+{"idx": 306, "pred": "B", "gold": "B", "ok": true, "conf": 0.999665, "mass": 0.999992, "probs": {"A": 0.000335, "B": 0.999665}}
+{"idx": 309, "pred": "A", "gold": "A", "ok": true, "conf": 0.893308, "mass": 0.999976, "probs": {"A": 0.893308, "B": 0.10669, "C": 2e-06}}
+{"idx": 314, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999994, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 316, "pred": "B", "gold": "B", "ok": true, "conf": 0.992423, "mass": 0.999986, "probs": {"A": 0.0, "B": 0.992423, "C": 0.007577}}
+{"idx": 322, "pred": "D", "gold": "B", "ok": false, "conf": 0.999992, "mass": 1.0, "probs": {"A": 0.0, "B": 8e-06, "C": 0.0, "D": 0.999992}}
+{"idx": 324, "pred": "B", "gold": "B", "ok": true, "conf": 0.999665, "mass": 0.999972, "probs": {"A": 0.000335, "B": 0.999665}}
+{"idx": 327, "pred": "B", "gold": "B", "ok": true, "conf": 0.997172, "mass": 0.999999, "probs": {"A": 0.002801, "B": 0.997172, "C": 2.7e-05}}
+{"idx": 331, "pred": "D", "gold": "C", "ok": false, "conf": 0.788001, "mass": 0.999995, "probs": {"A": 2.5e-05, "B": 0.012737, "C": 0.199238, "D": 0.788001}}
+{"idx": 335, "pred": "D", "gold": "D", "ok": true, "conf": 0.999997, "mass": 1.0, "probs": {"A": 0.0, "B": 1e-06, "C": 1e-06, "D": 0.999997}}
+{"idx": 339, "pred": "B", "gold": "A", "ok": false, "conf": 0.830807, "mass": 0.999936, "probs": {"A": 0.163596, "B": 0.830807, "C": 0.005598}}
+{"idx": 346, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 349, "pred": "D", "gold": "D", "ok": true, "conf": 0.999998, "mass": 0.999999, "probs": {"A": 1e-06, "B": 1e-06, "C": 0.0, "D": 0.999998}}
+{"idx": 358, "pred": "C", "gold": "C", "ok": true, "conf": 0.477746, "mass": 0.999975, "probs": {"A": 0.225671, "B": 0.006815, "C": 0.477746, "D": 0.289768}}
+{"idx": 365, "pred": "B", "gold": "A", "ok": false, "conf": 0.798187, "mass": 0.999974, "probs": {"A": 0.201813, "B": 0.798187}}
+{"idx": 367, "pred": "B", "gold": "C", "ok": false, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0, "C": 0.0}}
+{"idx": 369, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 373, "pred": "B", "gold": "A", "ok": false, "conf": 0.982014, "mass": 0.999974, "probs": {"A": 0.017986, "B": 0.982014}}
+{"idx": 376, "pred": "B", "gold": "C", "ok": false, "conf": 0.970662, "mass": 0.999999, "probs": {"A": 2.7e-05, "B": 0.970662, "C": 0.029311}}
+{"idx": 378, "pred": "B", "gold": "A", "ok": false, "conf": 0.991349, "mass": 0.999957, "probs": {"A": 7.4e-05, "B": 0.991349, "C": 0.008577}}
+{"idx": 382, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 385, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 386, "pred": "C", "gold": "B", "ok": false, "conf": 1.0, "mass": 0.999994, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 387, "pred": "D", "gold": "D", "ok": true, "conf": 0.812764, "mass": 0.999996, "probs": {"A": 0.000146, "B": 0.141237, "C": 0.045853, "D": 0.812764}}
+{"idx": 389, "pred": "A", "gold": "A", "ok": true, "conf": 0.99834, "mass": 0.999999, "probs": {"A": 0.99834, "B": 0.001325, "C": 0.000335, "D": 0.0}}
+{"idx": 390, "pred": "A", "gold": "A", "ok": true, "conf": 0.798187, "mass": 0.999933, "probs": {"A": 0.798187, "B": 0.201813}}
+{"idx": 391, "pred": "D", "gold": "D", "ok": true, "conf": 0.999985, "mass": 0.999984, "probs": {"A": 0.0, "B": 9e-06, "C": 6e-06, "D": 0.999985}}
+{"idx": 393, "pred": "C", "gold": "A", "ok": false, "conf": 0.999835, "mass": 0.999999, "probs": {"A": 4e-05, "B": 4e-05, "C": 0.999835, "D": 8.5e-05}}
+{"idx": 398, "pred": "D", "gold": "A", "ok": false, "conf": 0.989826, "mass": 0.999988, "probs": {"A": 0.009704, "B": 0.000332, "C": 0.000138, "D": 0.989826}}
+{"idx": 406, "pred": "B", "gold": "B", "ok": true, "conf": 0.999999, "mass": 1.0, "probs": {"A": 0.0, "B": 0.999999, "C": 0.0, "D": 1e-06}}
+{"idx": 408, "pred": "C", "gold": "B", "ok": false, "conf": 0.999983, "mass": 0.999997, "probs": {"A": 2e-06, "B": 1.5e-05, "C": 0.999983}}
+{"idx": 416, "pred": "A", "gold": "A", "ok": true, "conf": 0.994089, "mass": 0.999973, "probs": {"A": 0.994089, "B": 0.005911}}
+{"idx": 418, "pred": "B", "gold": "A", "ok": false, "conf": 0.990241, "mass": 0.999999, "probs": {"A": 0.009708, "B": 0.990241, "C": 5.1e-05}}
+{"idx": 421, "pred": "B", "gold": "A", "ok": false, "conf": 0.999999, "mass": 0.999996, "probs": {"A": 1e-06, "B": 0.999999}}
+{"idx": 425, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 431, "pred": "A", "gold": "B", "ok": false, "conf": 0.992423, "mass": 0.999917, "probs": {"A": 0.992423, "B": 0.007577}}
+{"idx": 437, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 440, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 447, "pred": "B", "gold": "B", "ok": true, "conf": 0.999569, "mass": 0.999962, "probs": {"A": 0.000431, "B": 0.999569}}
+{"idx": 448, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 451, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 452, "pred": "A", "gold": "A", "ok": true, "conf": 0.999925, "mass": 0.999996, "probs": {"A": 0.999925, "B": 7.5e-05}}
+{"idx": 454, "pred": "B", "gold": "B", "ok": true, "conf": 0.999998, "mass": 0.999998, "probs": {"A": 2e-06, "B": 0.999998}}
+{"idx": 456, "pred": "A", "gold": "A", "ok": true, "conf": 0.966914, "mass": 0.999869, "probs": {"A": 0.966914, "B": 0.033086}}
+{"idx": 482, "pred": "A", "gold": "B", "ok": false, "conf": 0.994359, "mass": 0.999897, "probs": {"A": 0.994359, "B": 0.001027, "C": 8e-06, "D": 0.004605}}
+{"idx": 488, "pred": "B", "gold": "B", "ok": true, "conf": 0.999998, "mass": 1.0, "probs": {"A": 1e-06, "B": 0.999998, "C": 1e-06, "D": 0.0}}
+{"idx": 490, "pred": "A", "gold": "A", "ok": true, "conf": 0.962673, "mass": 0.999981, "probs": {"A": 0.962673, "B": 0.037327}}
+{"idx": 491, "pred": "A", "gold": "A", "ok": true, "conf": 0.932453, "mass": 0.999976, "probs": {"A": 0.932453, "B": 0.067547}}
+{"idx": 495, "pred": "A", "gold": "A", "ok": true, "conf": 0.993294, "mass": 0.999912, "probs": {"A": 0.993294, "B": 0.005906, "C": 0.000799}}
+{"idx": 497, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 499, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 513, "pred": "B", "gold": "C", "ok": false, "conf": 0.893284, "mass": 0.999998, "probs": {"A": 2.8e-05, "B": 0.893284, "C": 0.106688}}
+{"idx": 525, "pred": "B", "gold": "A", "ok": false, "conf": 0.999089, "mass": 0.999988, "probs": {"A": 0.000911, "B": 0.999089}}
+{"idx": 530, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 531, "pred": "A", "gold": "A", "ok": true, "conf": 0.996827, "mass": 0.999979, "probs": {"A": 0.996827, "B": 0.003173}}
+{"idx": 532, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 533, "pred": "A", "gold": "A", "ok": true, "conf": 0.731059, "mass": 0.999982, "probs": {"A": 0.731059, "B": 0.268941}}
+{"idx": 552, "pred": "A", "gold": "A", "ok": true, "conf": 0.999946, "mass": 0.999988, "probs": {"A": 0.999946, "B": 4.5e-05, "C": 9e-06}}
+{"idx": 555, "pred": "A", "gold": "A", "ok": true, "conf": 0.995774, "mass": 0.999993, "probs": {"A": 0.995774, "B": 0.001497, "C": 0.000551, "D": 0.002178}}
+{"idx": 562, "pred": "B", "gold": "A", "ok": false, "conf": 0.550184, "mass": 0.999984, "probs": {"A": 0.021333, "B": 0.550184, "C": 0.428483}}
+{"idx": 563, "pred": "D", "gold": "D", "ok": true, "conf": 0.999999, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 0.999999}}
+{"idx": 564, "pred": "A", "gold": "A", "ok": true, "conf": 0.980842, "mass": 0.999997, "probs": {"A": 0.980842, "B": 0.017965, "C": 4.5e-05, "D": 0.001148}}
+{"idx": 570, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 573, "pred": "B", "gold": "B", "ok": true, "conf": 0.999997, "mass": 0.999997, "probs": {"A": 3e-06, "B": 0.999997}}
+{"idx": 575, "pred": "B", "gold": "A", "ok": false, "conf": 0.817454, "mass": 0.999991, "probs": {"A": 0.182399, "B": 0.817454, "C": 0.000147}}
+{"idx": 577, "pred": "B", "gold": "B", "ok": true, "conf": 0.981987, "mass": 0.999997, "probs": {"A": 2.7e-05, "B": 0.981987, "C": 0.017986}}
+{"idx": 589, "pred": "B", "gold": "A", "ok": false, "conf": 0.358667, "mass": 0.999997, "probs": {"A": 0.090685, "B": 0.358667, "C": 0.191981, "D": 0.358667}}
+{"idx": 592, "pred": "A", "gold": "A", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 1.0, "B": 0.0}}
+{"idx": 594, "pred": "B", "gold": "A", "ok": false, "conf": 0.999997, "mass": 0.999997, "probs": {"A": 3e-06, "B": 0.999997}}
+{"idx": 596, "pred": "C", "gold": "A", "ok": false, "conf": 0.996379, "mass": 0.999981, "probs": {"A": 0.001923, "B": 0.001697, "C": 0.996379}}
+{"idx": 600, "pred": "A", "gold": "C", "ok": false, "conf": 0.851498, "mass": 0.999879, "probs": {"A": 0.851498, "B": 0.147968, "C": 0.000534}}
+{"idx": 612, "pred": "A", "gold": "A", "ok": true, "conf": 0.984515, "mass": 0.999988, "probs": {"A": 0.984515, "B": 0.001017, "C": 0.000424, "D": 0.014043}}
+{"idx": 616, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 617, "pred": "C", "gold": "B", "ok": false, "conf": 0.744844, "mass": 0.999922, "probs": {"A": 0.166197, "B": 0.088959, "C": 0.744844}}
+{"idx": 619, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 621, "pred": "B", "gold": "B", "ok": true, "conf": 0.999981, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.999981, "C": 0.0, "D": 1.9e-05}}
+{"idx": 630, "pred": "A", "gold": "A", "ok": true, "conf": 0.964027, "mass": 0.999927, "probs": {"A": 0.964027, "B": 0.029111, "C": 0.000366, "D": 0.006496}}
+{"idx": 635, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 637, "pred": "D", "gold": "D", "ok": true, "conf": 0.99997, "mass": 0.999998, "probs": {"A": 1.5e-05, "B": 1.5e-05, "C": 0.0, "D": 0.99997}}
+{"idx": 639, "pred": "A", "gold": "C", "ok": false, "conf": 0.44437, "mass": 0.999966, "probs": {"A": 0.44437, "B": 0.392155, "C": 0.163475}}
+{"idx": 644, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 647, "pred": "D", "gold": "D", "ok": true, "conf": 0.999999, "mass": 0.999999, "probs": {"A": 0.0, "B": 1e-06, "C": 0.0, "D": 0.999999}}
+{"idx": 649, "pred": "A", "gold": "A", "ok": true, "conf": 0.994089, "mass": 0.999991, "probs": {"A": 0.994089, "B": 0.005911}}
+{"idx": 655, "pred": "B", "gold": "B", "ok": true, "conf": 0.999994, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.999994, "C": 0.0, "D": 5e-06}}
+{"idx": 664, "pred": "B", "gold": "B", "ok": true, "conf": 0.999704, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.999704, "C": 0.000296}}
+{"idx": 666, "pred": "C", "gold": "C", "ok": true, "conf": 0.633918, "mass": 0.999965, "probs": {"A": 0.205803, "B": 0.160279, "C": 0.633918}}
+{"idx": 667, "pred": "C", "gold": "C", "ok": true, "conf": 0.99989, "mass": 0.999998, "probs": {"A": 0.0, "B": 1e-06, "C": 0.99989, "D": 0.000109}}
+{"idx": 672, "pred": "B", "gold": "B", "ok": true, "conf": 0.999999, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.999999, "C": 0.0, "D": 0.0}}
+{"idx": 676, "pred": "B", "gold": "A", "ok": false, "conf": 0.945876, "mass": 0.999987, "probs": {"A": 0.000761, "B": 0.945876, "C": 0.053363}}
+{"idx": 681, "pred": "C", "gold": "A", "ok": false, "conf": 0.996784, "mass": 0.999998, "probs": {"A": 5e-06, "B": 0.00103, "C": 0.996784, "D": 0.00218}}
+{"idx": 682, "pred": "B", "gold": "A", "ok": false, "conf": 0.999983, "mass": 0.999989, "probs": {"A": 1.7e-05, "B": 0.999983}}
+{"idx": 684, "pred": "B", "gold": "B", "ok": true, "conf": 0.981987, "mass": 0.999999, "probs": {"A": 0.017986, "B": 0.981987, "C": 2.7e-05}}
+{"idx": 686, "pred": "B", "gold": "A", "ok": false, "conf": 0.651355, "mass": 0.999952, "probs": {"A": 0.348645, "B": 0.651355}}
+{"idx": 687, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 691, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 692, "pred": "B", "gold": "B", "ok": true, "conf": 0.999447, "mass": 0.999998, "probs": {"A": 0.000553, "B": 0.999447}}
+{"idx": 701, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 710, "pred": "B", "gold": "B", "ok": true, "conf": 0.999875, "mass": 1.0, "probs": {"A": 1e-06, "B": 0.999875, "C": 1e-06, "D": 0.000123}}
+{"idx": 717, "pred": "B", "gold": "A", "ok": false, "conf": 0.999994, "mass": 0.999999, "probs": {"A": 6e-06, "B": 0.999994}}
+{"idx": 721, "pred": "C", "gold": "D", "ok": false, "conf": 0.992922, "mass": 0.99999, "probs": {"A": 1e-05, "B": 0.000377, "C": 0.992922, "D": 0.00669}}
+{"idx": 724, "pred": "B", "gold": "A", "ok": false, "conf": 0.999561, "mass": 0.999997, "probs": {"A": 3e-06, "B": 0.999561, "C": 0.000296, "D": 0.00014}}
+{"idx": 731, "pred": "B", "gold": "B", "ok": true, "conf": 0.592384, "mass": 0.999997, "probs": {"A": 0.000477, "B": 0.592384, "C": 0.407139}}
+{"idx": 733, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0, "C": 0.0}}
+{"idx": 734, "pred": "B", "gold": "A", "ok": false, "conf": 0.999996, "mass": 0.999999, "probs": {"A": 4e-06, "B": 0.999996}}
+{"idx": 735, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 739, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 751, "pred": "B", "gold": "A", "ok": false, "conf": 0.999797, "mass": 0.999999, "probs": {"A": 0.000203, "B": 0.999797}}
+{"idx": 752, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999995, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 758, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 761, "pred": "B", "gold": "A", "ok": false, "conf": 0.999934, "mass": 0.999999, "probs": {"A": 6.6e-05, "B": 0.999934}}
+{"idx": 762, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 769, "pred": "C", "gold": "C", "ok": true, "conf": 0.999874, "mass": 0.999999, "probs": {"A": 2e-06, "B": 5.8e-05, "C": 0.999874, "D": 6.6e-05}}
+{"idx": 775, "pred": "B", "gold": "A", "ok": false, "conf": 0.999704, "mass": 0.999994, "probs": {"A": 0.000296, "B": 0.999704}}
+{"idx": 788, "pred": "D", "gold": "A", "ok": false, "conf": 0.909285, "mass": 0.999977, "probs": {"A": 0.084577, "B": 0.004771, "C": 0.001367, "D": 0.909285}}
+{"idx": 794, "pred": "B", "gold": "A", "ok": false, "conf": 0.731059, "mass": 0.999962, "probs": {"A": 0.268941, "B": 0.731059}}
+{"idx": 795, "pred": "A", "gold": "A", "ok": true, "conf": 0.880797, "mass": 0.999988, "probs": {"A": 0.880797, "B": 0.119203, "C": 0.0}}
+{"idx": 801, "pred": "A", "gold": "A", "ok": true, "conf": 0.914901, "mass": 0.999942, "probs": {"A": 0.914901, "B": 0.085099, "C": 0.0}}
+{"idx": 808, "pred": "A", "gold": "A", "ok": true, "conf": 0.993946, "mass": 0.999998, "probs": {"A": 0.993946, "B": 0.000108, "C": 0.00591, "D": 3.5e-05}}
+{"idx": 812, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0, "C": 0.0}}
+{"idx": 816, "pred": "C", "gold": "A", "ok": false, "conf": 0.997978, "mass": 0.999936, "probs": {"A": 0.001927, "B": 9.6e-05, "C": 0.997978}}
+{"idx": 822, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 823, "pred": "A", "gold": "A", "ok": true, "conf": 0.962416, "mass": 0.999942, "probs": {"A": 0.962416, "B": 0.003471, "C": 0.00505, "D": 0.029062}}
+{"idx": 825, "pred": "D", "gold": "D", "ok": true, "conf": 0.999999, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 0.999999}}
+{"idx": 829, "pred": "B", "gold": "B", "ok": true, "conf": 0.999998, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.999998, "C": 2e-06}}
+{"idx": 839, "pred": "B", "gold": "B", "ok": true, "conf": 0.993994, "mass": 0.999996, "probs": {"A": 9.6e-05, "B": 0.993994, "C": 0.005911}}
+{"idx": 848, "pred": "A", "gold": "A", "ok": true, "conf": 0.798187, "mass": 0.999931, "probs": {"A": 0.798187, "B": 0.201813}}
+{"idx": 849, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999993, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 850, "pred": "B", "gold": "A", "ok": false, "conf": 0.993307, "mass": 0.999957, "probs": {"A": 0.006693, "B": 0.993307}}
+{"idx": 855, "pred": "B", "gold": "B", "ok": true, "conf": 0.999999, "mass": 1.0, "probs": {"A": 1e-06, "B": 0.999999}}
+{"idx": 856, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 858, "pred": "C", "gold": "B", "ok": false, "conf": 0.999932, "mass": 1.0, "probs": {"A": 1e-06, "B": 5.8e-05, "C": 0.999932, "D": 9e-06}}
+{"idx": 861, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 871, "pred": "C", "gold": "B", "ok": false, "conf": 1.0, "mass": 0.99999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 872, "pred": "B", "gold": "A", "ok": false, "conf": 0.592667, "mass": 0.999906, "probs": {"A": 0.407333, "B": 0.592667}}
+{"idx": 889, "pred": "A", "gold": "A", "ok": true, "conf": 0.996228, "mass": 0.999943, "probs": {"A": 0.996228, "B": 0.003593, "C": 0.000179}}
+{"idx": 891, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 893, "pred": "B", "gold": "A", "ok": false, "conf": 0.777281, "mass": 0.999997, "probs": {"A": 0.222695, "B": 0.777281, "C": 2.4e-05}}
+{"idx": 905, "pred": "B", "gold": "A", "ok": false, "conf": 0.999967, "mass": 0.999998, "probs": {"A": 2e-06, "B": 0.999967, "C": 3.1e-05}}
+{"idx": 906, "pred": "C", "gold": "E", "ok": false, "conf": 0.999845, "mass": 0.999998, "probs": {"A": 0.0, "B": 4e-05, "C": 0.999845, "D": 1.9e-05, "E": 9.6e-05}}
+{"idx": 911, "pred": "B", "gold": "C", "ok": false, "conf": 0.999181, "mass": 0.999946, "probs": {"A": 1.5e-05, "B": 0.999181, "C": 0.000804}}
+{"idx": 912, "pred": "C", "gold": "C", "ok": true, "conf": 0.985864, "mass": 0.999998, "probs": {"A": 7.4e-05, "B": 0.014063, "C": 0.985864}}
+{"idx": 914, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 917, "pred": "B", "gold": "A", "ok": false, "conf": 0.849645, "mass": 0.999991, "probs": {"A": 0.089552, "B": 0.849645, "C": 0.006487, "D": 0.054316}}
+{"idx": 922, "pred": "A", "gold": "A", "ok": true, "conf": 0.971978, "mass": 0.999997, "probs": {"A": 0.971978, "B": 0.017802, "C": 0.009529, "D": 0.00069}}
+{"idx": 927, "pred": "B", "gold": "A", "ok": false, "conf": 0.996406, "mass": 0.999958, "probs": {"A": 0.003594, "B": 0.996406}}
+{"idx": 937, "pred": "B", "gold": "A", "ok": false, "conf": 0.99962, "mass": 0.999997, "probs": {"A": 0.00038, "B": 0.99962}}
+{"idx": 939, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 956, "pred": "B", "gold": "A", "ok": false, "conf": 0.99999, "mass": 0.999983, "probs": {"A": 1e-05, "B": 0.99999}}
+{"idx": 963, "pred": "C", "gold": "C", "ok": true, "conf": 0.99982, "mass": 0.999996, "probs": {"A": 0.0, "B": 0.00018, "C": 0.99982}}
+{"idx": 965, "pred": "B", "gold": "B", "ok": true, "conf": 0.999512, "mass": 0.999998, "probs": {"A": 0.000488, "B": 0.999512}}
+{"idx": 966, "pred": "C", "gold": "C", "ok": true, "conf": 0.727569, "mass": 0.999968, "probs": {"A": 0.036224, "B": 0.236207, "C": 0.727569}}
+{"idx": 974, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999999, "probs": {"A": 1e-06, "B": 1.0}}
+{"idx": 975, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 976, "pred": "B", "gold": "A", "ok": false, "conf": 0.679179, "mass": 0.999982, "probs": {"A": 0.320821, "B": 0.679179}}
+{"idx": 979, "pred": "B", "gold": "A", "ok": false, "conf": 0.999989, "mass": 0.999987, "probs": {"A": 1.1e-05, "B": 0.999989}}
+{"idx": 981, "pred": "C", "gold": "C", "ok": true, "conf": 0.999978, "mass": 0.999999, "probs": {"A": 0.0, "B": 1e-06, "C": 0.999978, "D": 2.1e-05}}
+{"idx": 985, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 986, "pred": "A", "gold": "B", "ok": false, "conf": 0.893309, "mass": 0.999934, "probs": {"A": 0.893309, "B": 0.106691}}
+{"idx": 995, "pred": "B", "gold": "A", "ok": false, "conf": 0.922554, "mass": 0.999492, "probs": {"A": 0.075728, "B": 0.922554, "C": 0.000146, "D": 0.001572}}
+{"idx": 996, "pred": "B", "gold": "D", "ok": false, "conf": 0.999078, "mass": 0.999999, "probs": {"A": 1e-06, "B": 0.999078, "C": 0.000911, "D": 1e-05, "E": 1e-06}}
+{"idx": 997, "pred": "B", "gold": "B", "ok": true, "conf": 0.999996, "mass": 0.999983, "probs": {"A": 4e-06, "B": 0.999996}}
+{"idx": 1002, "pred": "A", "gold": "A", "ok": true, "conf": 0.982228, "mass": 0.999839, "probs": {"A": 0.982228, "B": 0.015876, "C": 0.001896}}
+{"idx": 1008, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1010, "pred": "D", "gold": "D", "ok": true, "conf": 0.999998, "mass": 0.999999, "probs": {"A": 0.0, "B": 1e-06, "C": 1e-06, "D": 0.999998}}
+{"idx": 1012, "pred": "A", "gold": "A", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 1.0, "B": 0.0}}
+{"idx": 1031, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1033, "pred": "B", "gold": "A", "ok": false, "conf": 0.992315, "mass": 0.999996, "probs": {"A": 0.000108, "B": 0.992315, "C": 0.007576}}
+{"idx": 1040, "pred": "A", "gold": "A", "ok": true, "conf": 0.835484, "mass": 0.999985, "probs": {"A": 0.835484, "B": 0.164516, "C": 0.0}}
+{"idx": 1041, "pred": "B", "gold": "A", "ok": false, "conf": 0.99883, "mass": 0.999997, "probs": {"A": 0.00117, "B": 0.99883}}
+{"idx": 1047, "pred": "A", "gold": "A", "ok": true, "conf": 0.724853, "mass": 0.999993, "probs": {"A": 0.724853, "B": 0.235325, "C": 0.028106, "D": 0.011716}}
+{"idx": 1066, "pred": "B", "gold": "B", "ok": true, "conf": 0.999965, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.999965, "C": 3.5e-05}}
+{"idx": 1067, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1068, "pred": "A", "gold": "A", "ok": true, "conf": 0.999898, "mass": 0.999886, "probs": {"A": 0.999898, "B": 1.7e-05, "C": 8.5e-05}}
+{"idx": 1071, "pred": "B", "gold": "B", "ok": true, "conf": 0.999995, "mass": 0.999435, "probs": {"A": 5e-06, "B": 0.999995}}
+{"idx": 1074, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1080, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1082, "pred": "C", "gold": "C", "ok": true, "conf": 0.99993, "mass": 0.999998, "probs": {"A": 2.4e-05, "B": 4.5e-05, "C": 0.99993}}
+{"idx": 1084, "pred": "C", "gold": "A", "ok": false, "conf": 0.999954, "mass": 0.99998, "probs": {"A": 3.5e-05, "B": 1e-05, "C": 0.999954}}
+{"idx": 1090, "pred": "B", "gold": "B", "ok": true, "conf": 0.999996, "mass": 0.999995, "probs": {"A": 4e-06, "B": 0.999996}}
+{"idx": 1094, "pred": "B", "gold": "A", "ok": false, "conf": 0.970688, "mass": 0.999739, "probs": {"A": 0.029312, "B": 0.970688}}
+{"idx": 1101, "pred": "C", "gold": "A", "ok": false, "conf": 0.999738, "mass": 0.99997, "probs": {"A": 5.8e-05, "B": 0.000203, "C": 0.999738}}
+{"idx": 1106, "pred": "A", "gold": "C", "ok": false, "conf": 0.679003, "mass": 0.999966, "probs": {"A": 0.679003, "B": 0.000258, "C": 0.320738}}
+{"idx": 1107, "pred": "A", "gold": "A", "ok": true, "conf": 0.999989, "mass": 0.999999, "probs": {"A": 0.999989, "B": 8e-06, "C": 2e-06, "D": 1e-06}}
+{"idx": 1112, "pred": "D", "gold": "B", "ok": false, "conf": 0.999992, "mass": 0.999998, "probs": {"A": 0.0, "B": 8e-06, "C": 0.0, "D": 0.999992}}
+{"idx": 1114, "pred": "D", "gold": "D", "ok": true, "conf": 0.999999, "mass": 1.0, "probs": {"A": 0.0, "B": 1e-06, "C": 0.0, "D": 0.999999}}
+{"idx": 1120, "pred": "A", "gold": "A", "ok": true, "conf": 0.999932, "mass": 0.999999, "probs": {"A": 0.999932, "B": 9e-06, "C": 1e-06, "D": 5.8e-05}}
+{"idx": 1121, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1123, "pred": "B", "gold": "B", "ok": true, "conf": 0.999998, "mass": 0.999999, "probs": {"A": 1e-06, "B": 0.999998, "C": 1e-06, "D": 0.0}}
+{"idx": 1128, "pred": "C", "gold": "A", "ok": false, "conf": 0.999996, "mass": 0.999997, "probs": {"A": 4e-06, "B": 0.0, "C": 0.999996}}
+{"idx": 1131, "pred": "C", "gold": "C", "ok": true, "conf": 0.999975, "mass": 0.999999, "probs": {"A": 0.0, "B": 2.4e-05, "C": 0.999975, "D": 0.0}}
+{"idx": 1143, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1146, "pred": "A", "gold": "B", "ok": false, "conf": 0.798187, "mass": 0.999994, "probs": {"A": 0.798187, "B": 0.201813}}
+{"idx": 1148, "pred": "A", "gold": "A", "ok": true, "conf": 0.863974, "mass": 0.999973, "probs": {"A": 0.863974, "B": 0.132495, "C": 0.003531}}
+{"idx": 1149, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1162, "pred": "C", "gold": "B", "ok": false, "conf": 0.995639, "mass": 0.999999, "probs": {"A": 5.8e-05, "B": 0.001696, "C": 0.995639, "D": 0.002178, "E": 0.000429}}
+{"idx": 1163, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1165, "pred": "B", "gold": "B", "ok": true, "conf": 0.999999, "mass": 0.999998, "probs": {"A": 1e-06, "B": 0.999999}}
+{"idx": 1166, "pred": "C", "gold": "B", "ok": false, "conf": 0.999372, "mass": 0.999994, "probs": {"A": 0.000488, "B": 0.00014, "C": 0.999372}}
+{"idx": 1175, "pred": "B", "gold": "B", "ok": true, "conf": 0.999994, "mass": 0.999994, "probs": {"A": 6e-06, "B": 0.999994}}
+{"idx": 1178, "pred": "D", "gold": "B", "ok": false, "conf": 0.592482, "mass": 0.999998, "probs": {"A": 0.000255, "B": 0.407206, "C": 5.7e-05, "D": 0.592482}}
+{"idx": 1179, "pred": "C", "gold": "D", "ok": false, "conf": 0.999983, "mass": 0.999999, "probs": {"A": 1e-05, "B": 3e-06, "C": 0.999983, "D": 5e-06}}
+{"idx": 1187, "pred": "B", "gold": "A", "ok": false, "conf": 0.981861, "mass": 0.999993, "probs": {"A": 0.017983, "B": 0.981861, "C": 0.000156}}
+{"idx": 1194, "pred": "B", "gold": "B", "ok": true, "conf": 0.99962, "mass": 0.999988, "probs": {"A": 0.0, "B": 0.99962, "C": 0.00038}}
+{"idx": 1202, "pred": "B", "gold": "B", "ok": true, "conf": 0.998073, "mass": 0.999963, "probs": {"A": 0.001927, "B": 0.998073}}
+{"idx": 1203, "pred": "D", "gold": "D", "ok": true, "conf": 0.999999, "mass": 0.999999, "probs": {"A": 0.0, "B": 1e-06, "C": 0.0, "D": 0.999999}}
+{"idx": 1207, "pred": "A", "gold": "A", "ok": true, "conf": 0.557153, "mass": 0.999948, "probs": {"A": 0.557153, "B": 0.14087, "C": 0.003754, "D": 0.298223}}
+{"idx": 1208, "pred": "D", "gold": "D", "ok": true, "conf": 0.999994, "mass": 0.999999, "probs": {"A": 3e-06, "B": 3e-06, "C": 0.0, "D": 0.999994}}
+{"idx": 1217, "pred": "C", "gold": "D", "ok": false, "conf": 0.99998, "mass": 0.999999, "probs": {"A": 8e-06, "B": 2e-06, "C": 0.99998, "D": 1e-05}}
+{"idx": 1221, "pred": "D", "gold": "D", "ok": true, "conf": 0.999999, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 0.999999}}
+{"idx": 1222, "pred": "D", "gold": "D", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}}
+{"idx": 1232, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1233, "pred": "D", "gold": "D", "ok": true, "conf": 0.999868, "mass": 0.999998, "probs": {"A": 4e-06, "B": 0.000123, "C": 4e-06, "D": 0.999868}}
+{"idx": 1235, "pred": "C", "gold": "A", "ok": false, "conf": 0.705384, "mass": 0.999993, "probs": {"A": 0.000568, "B": 0.294048, "C": 0.705384}}
+{"idx": 1236, "pred": "D", "gold": "D", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}}
+{"idx": 1240, "pred": "C", "gold": "C", "ok": true, "conf": 0.999952, "mass": 0.999999, "probs": {"A": 9e-06, "B": 1.5e-05, "C": 0.999952, "D": 2.4e-05}}
+{"idx": 1241, "pred": "B", "gold": "A", "ok": false, "conf": 0.976381, "mass": 0.999998, "probs": {"A": 0.002742, "B": 0.976381, "C": 0.020264, "D": 0.000612}}
+{"idx": 1244, "pred": "D", "gold": "D", "ok": true, "conf": 0.999997, "mass": 0.999999, "probs": {"A": 1e-06, "B": 2e-06, "C": 0.0, "D": 0.999997}}
+{"idx": 1245, "pred": "B", "gold": "B", "ok": true, "conf": 0.999994, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.999994, "C": 6e-06}}
+{"idx": 1249, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999955, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1251, "pred": "B", "gold": "B", "ok": true, "conf": 0.907322, "mass": 0.999998, "probs": {"A": 0.000644, "B": 0.907322, "C": 0.074478, "D": 0.000938, "E": 0.016618}}
+{"idx": 1253, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 1254, "pred": "B", "gold": "A", "ok": false, "conf": 0.999999, "mass": 0.999984, "probs": {"A": 1e-06, "B": 0.999999}}
+{"idx": 1266, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1270, "pred": "B", "gold": "B", "ok": true, "conf": 0.521131, "mass": 0.999956, "probs": {"A": 0.459897, "B": 0.521131, "C": 0.00114, "D": 0.017832}}
+{"idx": 1271, "pred": "B", "gold": "B", "ok": true, "conf": 0.999994, "mass": 0.999995, "probs": {"A": 6e-06, "B": 0.999994}}
+{"idx": 1280, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1285, "pred": "C", "gold": "C", "ok": true, "conf": 0.999998, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 0.999998, "D": 2e-06}}
+{"idx": 1290, "pred": "B", "gold": "A", "ok": false, "conf": 0.999999, "mass": 0.999998, "probs": {"A": 1e-06, "B": 0.999999}}
+{"idx": 1296, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1297, "pred": "B", "gold": "B", "ok": true, "conf": 0.99883, "mass": 0.999992, "probs": {"A": 0.00117, "B": 0.99883}}
+{"idx": 1298, "pred": "B", "gold": "C", "ok": false, "conf": 0.995915, "mass": 0.999987, "probs": {"A": 1.5e-05, "B": 0.995915, "C": 0.00407}}
+{"idx": 1300, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1305, "pred": "B", "gold": "A", "ok": false, "conf": 0.999949, "mass": 0.999998, "probs": {"A": 5.1e-05, "B": 0.999949}}
+{"idx": 1311, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1313, "pred": "B", "gold": "B", "ok": true, "conf": 0.963616, "mass": 0.999994, "probs": {"A": 0.025679, "B": 0.963616, "C": 0.010705}}
+{"idx": 1319, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1320, "pred": "B", "gold": "B", "ok": true, "conf": 0.998073, "mass": 0.999996, "probs": {"A": 0.001927, "B": 0.998073}}
+{"idx": 1324, "pred": "C", "gold": "A", "ok": false, "conf": 0.537378, "mass": 0.999874, "probs": {"A": 0.418511, "B": 0.044111, "C": 0.537378}}
+{"idx": 1329, "pred": "B", "gold": "B", "ok": true, "conf": 0.999997, "mass": 0.999992, "probs": {"A": 3e-06, "B": 0.999997}}
+{"idx": 1332, "pred": "B", "gold": "A", "ok": false, "conf": 0.999998, "mass": 0.99999, "probs": {"A": 2e-06, "B": 0.999998}}
+{"idx": 1338, "pred": "D", "gold": "D", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}}
+{"idx": 1342, "pred": "A", "gold": "A", "ok": true, "conf": 0.495455, "mass": 0.999937, "probs": {"A": 0.495455, "B": 0.182268, "C": 0.021769, "D": 0.300509}}
+{"idx": 1344, "pred": "B", "gold": "C", "ok": false, "conf": 0.997525, "mass": 0.999998, "probs": {"A": 3e-06, "B": 0.997525, "C": 0.002473}}
+{"idx": 1346, "pred": "B", "gold": "A", "ok": false, "conf": 0.997527, "mass": 0.999988, "probs": {"A": 0.002473, "B": 0.997527}}
+{"idx": 1352, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1356, "pred": "A", "gold": "A", "ok": true, "conf": 0.999999, "mass": 0.999996, "probs": {"A": 0.999999, "B": 0.0, "C": 1e-06}}
+{"idx": 1363, "pred": "D", "gold": "D", "ok": true, "conf": 0.999948, "mass": 0.999998, "probs": {"A": 0.0, "B": 5.1e-05, "C": 1e-06, "D": 0.999948}}
+{"idx": 1368, "pred": "B", "gold": "C", "ok": false, "conf": 0.997509, "mass": 0.999994, "probs": {"A": 0.002473, "B": 0.997509, "C": 1.9e-05}}
+{"idx": 1377, "pred": "A", "gold": "A", "ok": true, "conf": 0.999997, "mass": 0.999998, "probs": {"A": 0.999997, "B": 2e-06, "C": 0.0, "D": 0.0}}
+{"idx": 1379, "pred": "D", "gold": "D", "ok": true, "conf": 0.999998, "mass": 0.999999, "probs": {"A": 0.0, "B": 1e-06, "C": 0.0, "D": 0.999998}}
+{"idx": 1383, "pred": "A", "gold": "A", "ok": true, "conf": 0.924142, "mass": 0.999854, "probs": {"A": 0.924142, "B": 0.075858}}
+{"idx": 1384, "pred": "B", "gold": "B", "ok": true, "conf": 0.999995, "mass": 0.999998, "probs": {"A": 0.0, "B": 0.999995, "C": 5e-06}}
+{"idx": 1389, "pred": "B", "gold": "B", "ok": true, "conf": 0.998499, "mass": 0.999999, "probs": {"A": 0.001501, "B": 0.998499}}
+{"idx": 1390, "pred": "B", "gold": "A", "ok": false, "conf": 0.499949, "mass": 0.99994, "probs": {"A": 0.000102, "B": 0.499949, "C": 0.499949}}
+{"idx": 1391, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1393, "pred": "B", "gold": "A", "ok": false, "conf": 0.880777, "mass": 0.999998, "probs": {"A": 1.3e-05, "B": 0.880777, "C": 0.1192, "D": 5e-06, "E": 5e-06}}
+{"idx": 1394, "pred": "C", "gold": "A", "ok": false, "conf": 0.999985, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.5e-05, "C": 0.999985}}
+{"idx": 1395, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1399, "pred": "B", "gold": "A", "ok": false, "conf": 0.999904, "mass": 0.999998, "probs": {"A": 0.0, "B": 0.999904, "C": 9.6e-05}}
+{"idx": 1400, "pred": "B", "gold": "C", "ok": false, "conf": 0.914901, "mass": 0.999924, "probs": {"A": 0.085099, "B": 0.914901, "C": 0.0}}
+{"idx": 1410, "pred": "A", "gold": "A", "ok": true, "conf": 0.998073, "mass": 0.999995, "probs": {"A": 0.998073, "B": 0.001927}}
+{"idx": 1414, "pred": "C", "gold": "C", "ok": true, "conf": 0.999991, "mass": 0.99937, "probs": {"A": 5e-06, "B": 4e-06, "C": 0.999991}}
+{"idx": 1428, "pred": "B", "gold": "A", "ok": false, "conf": 0.999739, "mass": 0.999994, "probs": {"A": 0.000261, "B": 0.999739}}
+{"idx": 1430, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999988, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1432, "pred": "C", "gold": "A", "ok": false, "conf": 0.999996, "mass": 0.999979, "probs": {"A": 3e-06, "B": 1e-06, "C": 0.999996}}
+{"idx": 1434, "pred": "D", "gold": "D", "ok": true, "conf": 0.999659, "mass": 0.999999, "probs": {"A": 0.000261, "B": 7.5e-05, "C": 5e-06, "D": 0.999659}}
+{"idx": 1436, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1437, "pred": "A", "gold": "A", "ok": true, "conf": 0.999915, "mass": 0.999996, "probs": {"A": 0.999915, "B": 8.5e-05}}
+{"idx": 1441, "pred": "B", "gold": "C", "ok": false, "conf": 0.999049, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.999049, "C": 0.000911, "D": 4e-05}}
+{"idx": 1444, "pred": "A", "gold": "A", "ok": true, "conf": 0.867036, "mass": 0.999992, "probs": {"A": 0.867036, "B": 0.132964}}
+{"idx": 1447, "pred": "B", "gold": "B", "ok": true, "conf": 0.999999, "mass": 0.999996, "probs": {"A": 1e-06, "B": 0.999999}}
+{"idx": 1452, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1454, "pred": "B", "gold": "B", "ok": true, "conf": 0.998073, "mass": 0.999994, "probs": {"A": 0.0, "B": 0.998073, "C": 0.001927}}
+{"idx": 1458, "pred": "C", "gold": "B", "ok": false, "conf": 0.9353, "mass": 0.999962, "probs": {"A": 0.059792, "B": 0.004908, "C": 0.9353}}
+{"idx": 1465, "pred": "C", "gold": "A", "ok": false, "conf": 0.866813, "mass": 0.999984, "probs": {"A": 0.029661, "B": 0.103526, "C": 0.866813}}
+{"idx": 1469, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1470, "pred": "B", "gold": "A", "ok": false, "conf": 0.904339, "mass": 0.999992, "probs": {"A": 0.095317, "B": 0.904339, "C": 0.000344}}
+{"idx": 1471, "pred": "C", "gold": "D", "ok": false, "conf": 0.999999, "mass": 0.999997, "probs": {"A": 0.0, "B": 0.0, "C": 0.999999, "D": 1e-06}}
+{"idx": 1473, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 1485, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1489, "pred": "D", "gold": "D", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 1.0}}
+{"idx": 1492, "pred": "C", "gold": "D", "ok": false, "conf": 0.999504, "mass": 0.999999, "probs": {"A": 5e-06, "B": 0.000261, "C": 0.999504, "D": 0.00023}}
+{"idx": 1494, "pred": "B", "gold": "B", "ok": true, "conf": 0.995325, "mass": 0.999997, "probs": {"A": 6.6e-05, "B": 0.995325, "C": 0.004609}}
+{"idx": 1495, "pred": "A", "gold": "A", "ok": true, "conf": 0.817574, "mass": 0.99994, "probs": {"A": 0.817574, "B": 0.182426}}
+{"idx": 1496, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1498, "pred": "B", "gold": "C", "ok": false, "conf": 0.984086, "mass": 0.999873, "probs": {"A": 8e-06, "B": 0.984086, "C": 0.015906}}
+{"idx": 1513, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1518, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1532, "pred": "B", "gold": "B", "ok": true, "conf": 0.999999, "mass": 0.999998, "probs": {"A": 0.0, "B": 0.999999, "C": 1e-06}}
+{"idx": 1534, "pred": "B", "gold": "B", "ok": true, "conf": 0.970688, "mass": 0.999989, "probs": {"A": 0.029312, "B": 0.970688}}
+{"idx": 1545, "pred": "B", "gold": "B", "ok": true, "conf": 0.990292, "mass": 0.999902, "probs": {"A": 0.009708, "B": 0.990292}}
+{"idx": 1547, "pred": "A", "gold": "A", "ok": true, "conf": 0.754915, "mass": 0.999928, "probs": {"A": 0.754915, "B": 0.245085}}
+{"idx": 1551, "pred": "C", "gold": "B", "ok": false, "conf": 0.999308, "mass": 0.999983, "probs": {"A": 6.6e-05, "B": 0.000626, "C": 0.999308}}
+{"idx": 1552, "pred": "D", "gold": "D", "ok": true, "conf": 0.999188, "mass": 0.999999, "probs": {"A": 3e-06, "B": 0.000804, "C": 5e-06, "D": 0.999188}}
+{"idx": 1560, "pred": "C", "gold": "B", "ok": false, "conf": 0.999997, "mass": 0.999995, "probs": {"A": 3e-06, "B": 0.0, "C": 0.999997}}
+{"idx": 1571, "pred": "A", "gold": "A", "ok": true, "conf": 0.977023, "mass": 0.999925, "probs": {"A": 0.977023, "B": 0.022977}}
+{"idx": 1581, "pred": "A", "gold": "A", "ok": true, "conf": 0.999739, "mass": 0.999994, "probs": {"A": 0.999739, "B": 0.000261}}
+{"idx": 1585, "pred": "B", "gold": "B", "ok": true, "conf": 0.999997, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.999997, "C": 0.0, "D": 3e-06}}
+{"idx": 1589, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1603, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999995, "probs": {"A": 0.0, "B": 1.0, "C": 0.0}}
+{"idx": 1605, "pred": "C", "gold": "B", "ok": false, "conf": 0.965117, "mass": 0.999992, "probs": {"A": 0.005739, "B": 0.029144, "C": 0.965117}}
+{"idx": 1607, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999966, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1609, "pred": "C", "gold": "B", "ok": false, "conf": 0.998498, "mass": 0.999991, "probs": {"A": 1e-06, "B": 0.001501, "C": 0.998498}}
+{"idx": 1615, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1624, "pred": "D", "gold": "D", "ok": true, "conf": 0.999784, "mass": 0.999997, "probs": {"A": 0.000203, "B": 1.1e-05, "C": 1e-06, "D": 0.999784}}
+{"idx": 1627, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1634, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999995, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1637, "pred": "A", "gold": "B", "ok": false, "conf": 0.966914, "mass": 0.99981, "probs": {"A": 0.966914, "B": 0.033086}}
+{"idx": 1639, "pred": "B", "gold": "B", "ok": true, "conf": 0.999825, "mass": 0.999987, "probs": {"A": 0.000158, "B": 0.999825, "C": 8e-06, "D": 9e-06}}
+{"idx": 1641, "pred": "A", "gold": "A", "ok": true, "conf": 0.989013, "mass": 0.999968, "probs": {"A": 0.989013, "B": 0.010987}}
+{"idx": 1644, "pred": "D", "gold": "D", "ok": true, "conf": 0.999768, "mass": 0.999998, "probs": {"A": 1.7e-05, "B": 0.000203, "C": 1.1e-05, "D": 0.999768}}
+{"idx": 1645, "pred": "A", "gold": "A", "ok": true, "conf": 0.562177, "mass": 0.99999, "probs": {"A": 0.562177, "B": 0.437824}}
+{"idx": 1648, "pred": "B", "gold": "A", "ok": false, "conf": 0.973172, "mass": 0.999996, "probs": {"A": 0.025934, "B": 0.973172, "C": 0.000475, "D": 0.000419}}
+{"idx": 1651, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1659, "pred": "C", "gold": "C", "ok": true, "conf": 0.894397, "mass": 0.999998, "probs": {"A": 7.6e-05, "B": 0.011259, "C": 0.894397, "D": 0.094269}}
+{"idx": 1661, "pred": "B", "gold": "A", "ok": false, "conf": 0.999196, "mass": 0.99999, "probs": {"A": 0.000804, "B": 0.999196}}
+{"idx": 1662, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999996, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 1668, "pred": "B", "gold": "B", "ok": true, "conf": 0.999983, "mass": 0.999999, "probs": {"A": 1.7e-05, "B": 0.999983}}
+{"idx": 1670, "pred": "D", "gold": "D", "ok": true, "conf": 0.999979, "mass": 0.999999, "probs": {"A": 0.0, "B": 2e-06, "C": 1.9e-05, "D": 0.999979}}
+{"idx": 1673, "pred": "A", "gold": "A", "ok": true, "conf": 0.999112, "mass": 0.999921, "probs": {"A": 0.999112, "B": 0.000335, "C": 0.000553}}
+{"idx": 1681, "pred": "B", "gold": "A", "ok": false, "conf": 0.98592, "mass": 0.999999, "probs": {"A": 0.014063, "B": 0.98592, "C": 1.6e-05}}
+{"idx": 1682, "pred": "D", "gold": "D", "ok": true, "conf": 0.990033, "mass": 0.999997, "probs": {"A": 3e-06, "B": 0.009706, "C": 0.000259, "D": 0.990033}}
+{"idx": 1689, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1690, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1692, "pred": "A", "gold": "A", "ok": true, "conf": 0.999797, "mass": 0.99999, "probs": {"A": 0.999797, "B": 0.000203}}
+{"idx": 1695, "pred": "D", "gold": "D", "ok": true, "conf": 0.999996, "mass": 0.999999, "probs": {"A": 3e-06, "B": 1e-06, "C": 0.0, "D": 0.999996}}
+{"idx": 1698, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1699, "pred": "C", "gold": "C", "ok": true, "conf": 0.559774, "mass": 0.999962, "probs": {"A": 0.004274, "B": 0.435952, "C": 0.559774}}
+{"idx": 1700, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999989, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 1707, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1710, "pred": "B", "gold": "B", "ok": true, "conf": 0.847226, "mass": 0.999997, "probs": {"A": 0.129926, "B": 0.847226, "C": 0.00733, "D": 0.015517}}
+{"idx": 1711, "pred": "D", "gold": "D", "ok": true, "conf": 0.999998, "mass": 0.999998, "probs": {"A": 1e-06, "B": 1e-06, "C": 0.0, "D": 0.999998}}
+{"idx": 1715, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1716, "pred": "B", "gold": "B", "ok": true, "conf": 0.914901, "mass": 0.999995, "probs": {"A": 0.085099, "B": 0.914901}}
+{"idx": 1720, "pred": "A", "gold": "A", "ok": true, "conf": 0.835484, "mass": 0.999807, "probs": {"A": 0.835484, "B": 0.164516}}
+{"idx": 1725, "pred": "A", "gold": "A", "ok": true, "conf": 0.999961, "mass": 0.999998, "probs": {"A": 0.999961, "B": 3.1e-05, "C": 0.0, "D": 8e-06}}
+{"idx": 1729, "pred": "C", "gold": "C", "ok": true, "conf": 0.994235, "mass": 0.999999, "probs": {"A": 0.00026, "B": 0.001919, "C": 0.994235, "D": 0.003586}}
+{"idx": 1730, "pred": "B", "gold": "B", "ok": true, "conf": 0.892252, "mass": 0.999987, "probs": {"A": 0.106564, "B": 0.892252, "C": 0.001184}}
+{"idx": 1731, "pred": "B", "gold": "B", "ok": true, "conf": 0.675315, "mass": 0.999969, "probs": {"A": 0.043171, "B": 0.675315, "C": 0.281513}}
+{"idx": 1739, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1741, "pred": "C", "gold": "C", "ok": true, "conf": 0.999999, "mass": 0.999997, "probs": {"A": 0.0, "B": 0.0, "C": 0.999999, "D": 0.0}}
+{"idx": 1744, "pred": "A", "gold": "A", "ok": true, "conf": 0.924142, "mass": 0.99998, "probs": {"A": 0.924142, "B": 0.075858}}
+{"idx": 1751, "pred": "A", "gold": "B", "ok": false, "conf": 0.893307, "mass": 0.999218, "probs": {"A": 0.893307, "B": 0.10669, "C": 3e-06}}
+{"idx": 1755, "pred": "C", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999994, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 1766, "pred": "A", "gold": "A", "ok": true, "conf": 0.993481, "mass": 0.999917, "probs": {"A": 0.993481, "B": 0.004601, "C": 0.001918}}
+{"idx": 1769, "pred": "B", "gold": "B", "ok": true, "conf": 0.999991, "mass": 0.999991, "probs": {"A": 9e-06, "B": 0.999991}}
+{"idx": 1771, "pred": "A", "gold": "A", "ok": true, "conf": 0.99996, "mass": 0.999988, "probs": {"A": 0.99996, "B": 4e-05}}
+{"idx": 1772, "pred": "A", "gold": "A", "ok": true, "conf": 0.56204, "mass": 0.999924, "probs": {"A": 0.56204, "B": 0.000242, "C": 0.437717}}
+{"idx": 1774, "pred": "D", "gold": "C", "ok": false, "conf": 0.965203, "mass": 0.999992, "probs": {"A": 0.000997, "B": 0.013768, "C": 0.020032, "D": 0.965203}}
+{"idx": 1776, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1782, "pred": "D", "gold": "D", "ok": true, "conf": 0.998073, "mass": 0.999998, "probs": {"A": 0.0, "B": 0.001927, "C": 0.0, "D": 0.998073}}
+{"idx": 1783, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999996, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 1786, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1790, "pred": "D", "gold": "D", "ok": true, "conf": 0.999998, "mass": 1.0, "probs": {"A": 2e-06, "B": 0.0, "C": 0.0, "D": 0.999998}}
+{"idx": 1792, "pred": "B", "gold": "B", "ok": true, "conf": 0.99883, "mass": 0.999994, "probs": {"A": 0.00117, "B": 0.99883}}
+{"idx": 1795, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1805, "pred": "B", "gold": "B", "ok": true, "conf": 0.999979, "mass": 0.999994, "probs": {"A": 2.1e-05, "B": 0.999979}}
+{"idx": 1808, "pred": "B", "gold": "A", "ok": false, "conf": 0.999373, "mass": 0.999996, "probs": {"A": 1e-06, "B": 0.999373, "C": 0.000626}}
+{"idx": 1812, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999993, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1823, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1824, "pred": "B", "gold": "B", "ok": true, "conf": 0.99986, "mass": 0.999992, "probs": {"A": 0.00014, "B": 0.99986}}
+{"idx": 1826, "pred": "C", "gold": "E", "ok": false, "conf": 0.950881, "mass": 0.999997, "probs": {"A": 4.3e-05, "B": 0.047342, "C": 0.950881, "D": 0.000867, "E": 0.000867}}
+{"idx": 1831, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1833, "pred": "B", "gold": "A", "ok": false, "conf": 0.999999, "mass": 0.999999, "probs": {"A": 1e-06, "B": 0.999999}}
+{"idx": 1837, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999997, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1839, "pred": "C", "gold": "C", "ok": true, "conf": 0.946582, "mass": 0.999999, "probs": {"A": 1.6e-05, "B": 0.053402, "C": 0.946582}}
+{"idx": 1840, "pred": "B", "gold": "A", "ok": false, "conf": 0.999995, "mass": 0.999992, "probs": {"A": 5e-06, "B": 0.999995}}
+{"idx": 1847, "pred": "A", "gold": "A", "ok": true, "conf": 0.990014, "mass": 0.999966, "probs": {"A": 0.990014, "B": 0.000259, "C": 2.1e-05, "D": 0.009706}}
+{"idx": 1849, "pred": "B", "gold": "B", "ok": true, "conf": 0.999925, "mass": 0.999979, "probs": {"A": 7.5e-05, "B": 0.999925}}
+{"idx": 1858, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1859, "pred": "C", "gold": "C", "ok": true, "conf": 0.999992, "mass": 0.99999, "probs": {"A": 1e-06, "B": 7e-06, "C": 0.999992}}
+{"idx": 1860, "pred": "A", "gold": "A", "ok": true, "conf": 0.651355, "mass": 0.999947, "probs": {"A": 0.651355, "B": 0.348645}}
+{"idx": 1863, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1864, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1868, "pred": "C", "gold": "A", "ok": false, "conf": 0.592662, "mass": 0.999984, "probs": {"A": 8e-06, "B": 0.40733, "C": 0.592662}}
+{"idx": 1869, "pred": "B", "gold": "B", "ok": true, "conf": 0.999809, "mass": 0.999997, "probs": {"A": 1.1e-05, "B": 0.999809, "C": 0.00018}}
+{"idx": 1875, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 1877, "pred": "A", "gold": "A", "ok": true, "conf": 0.999998, "mass": 0.999998, "probs": {"A": 0.999998, "B": 2e-06}}
+{"idx": 1878, "pred": "B", "gold": "B", "ok": true, "conf": 0.998675, "mass": 0.999998, "probs": {"A": 0.001325, "B": 0.998675}}
+{"idx": 1879, "pred": "C", "gold": "A", "ok": false, "conf": 0.979254, "mass": 0.999932, "probs": {"A": 0.000422, "B": 0.020324, "C": 0.979254}}
+{"idx": 1880, "pred": "B", "gold": "C", "ok": false, "conf": 0.99883, "mass": 0.999997, "probs": {"A": 1e-06, "B": 0.99883, "C": 0.00117}}
+{"idx": 1881, "pred": "A", "gold": "A", "ok": true, "conf": 0.998474, "mass": 0.999996, "probs": {"A": 0.998474, "B": 0.000261, "C": 9.6e-05, "D": 0.001169}}
+{"idx": 1882, "pred": "B", "gold": "B", "ok": true, "conf": 0.996406, "mass": 0.999997, "probs": {"A": 0.0, "B": 0.996406, "C": 0.003594}}
+{"idx": 1888, "pred": "A", "gold": "B", "ok": false, "conf": 0.622459, "mass": 0.999988, "probs": {"A": 0.622459, "B": 0.377541}}
+{"idx": 1890, "pred": "C", "gold": "B", "ok": false, "conf": 1.0, "mass": 0.999994, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 1891, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1892, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 1894, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1899, "pred": "B", "gold": "B", "ok": true, "conf": 0.970677, "mass": 0.999985, "probs": {"A": 1.1e-05, "B": 0.970677, "C": 0.029312}}
+{"idx": 1903, "pred": "A", "gold": "A", "ok": true, "conf": 0.999877, "mass": 0.999989, "probs": {"A": 0.999877, "B": 0.000123}}
+{"idx": 1907, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1910, "pred": "B", "gold": "C", "ok": false, "conf": 0.499545, "mass": 0.999996, "probs": {"A": 0.000663, "B": 0.499545, "C": 0.499545, "D": 0.000215, "E": 3.3e-05}}
+{"idx": 1916, "pred": "C", "gold": "A", "ok": false, "conf": 0.999545, "mass": 0.999981, "probs": {"A": 0.000431, "B": 2.4e-05, "C": 0.999545}}
+{"idx": 1918, "pred": "C", "gold": "C", "ok": true, "conf": 0.992401, "mass": 0.999997, "probs": {"A": 1e-06, "B": 2.1e-05, "C": 0.992401, "D": 0.007577}}
+{"idx": 1925, "pred": "B", "gold": "A", "ok": false, "conf": 0.865253, "mass": 0.999999, "probs": {"A": 0.000542, "B": 0.865253, "C": 0.132691, "D": 3.9e-05, "E": 0.001474}}
+{"idx": 1934, "pred": "A", "gold": "A", "ok": true, "conf": 0.999387, "mass": 0.999998, "probs": {"A": 0.999387, "B": 0.00043, "C": 3e-06, "D": 0.000179}}
+{"idx": 1938, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1944, "pred": "D", "gold": "D", "ok": true, "conf": 0.999999, "mass": 1.0, "probs": {"A": 0.0, "B": 0.0, "C": 0.0, "D": 0.999999}}
+{"idx": 1948, "pred": "B", "gold": "A", "ok": false, "conf": 0.999842, "mass": 0.999736, "probs": {"A": 0.000158, "B": 0.999842}}
+{"idx": 1951, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1954, "pred": "C", "gold": "C", "ok": true, "conf": 0.950565, "mass": 0.999999, "probs": {"A": 3e-05, "B": 0.002079, "C": 0.950565, "D": 0.047326}}
+{"idx": 1962, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0, "D": 0.0}}
+{"idx": 1963, "pred": "B", "gold": "A", "ok": false, "conf": 0.952574, "mass": 0.999993, "probs": {"A": 0.047426, "B": 0.952574}}
+{"idx": 1965, "pred": "B", "gold": "B", "ok": true, "conf": 0.999999, "mass": 0.999982, "probs": {"A": 1e-06, "B": 0.999999}}
+{"idx": 1968, "pred": "A", "gold": "A", "ok": true, "conf": 0.999842, "mass": 0.999968, "probs": {"A": 0.999842, "B": 0.000158}}
+{"idx": 1975, "pred": "C", "gold": "C", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 0.0, "C": 1.0}}
+{"idx": 1977, "pred": "B", "gold": "A", "ok": false, "conf": 0.952574, "mass": 0.99998, "probs": {"A": 0.047426, "B": 0.952574}}
+{"idx": 1978, "pred": "C", "gold": "C", "ok": true, "conf": 0.99976, "mass": 0.999997, "probs": {"A": 0.0, "B": 9e-06, "C": 0.99976, "D": 0.000231}}
+{"idx": 1982, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999998, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 1983, "pred": "A", "gold": "A", "ok": true, "conf": 0.330123, "mass": 0.99998, "probs": {"A": 0.330123, "B": 0.291332, "C": 0.121445, "D": 0.2571}}
+{"idx": 1986, "pred": "C", "gold": "A", "ok": false, "conf": 0.99939, "mass": 0.999991, "probs": {"A": 0.00038, "B": 0.00023, "C": 0.99939}}
+{"idx": 1987, "pred": "B", "gold": "B", "ok": true, "conf": 0.999877, "mass": 0.999994, "probs": {"A": 0.000123, "B": 0.999877, "C": 0.0}}
+{"idx": 1990, "pred": "D", "gold": "D", "ok": true, "conf": 0.999998, "mass": 0.999998, "probs": {"A": 0.0, "B": 2e-06, "C": 0.0, "D": 0.999998}}
+{"idx": 1998, "pred": "A", "gold": "A", "ok": true, "conf": 0.871135, "mass": 0.999987, "probs": {"A": 0.871135, "B": 0.117895, "C": 0.010966, "D": 4e-06}}
+{"idx": 2000, "pred": "B", "gold": "A", "ok": false, "conf": 1.0, "mass": 0.999994, "probs": {"A": 0.0, "B": 1.0}}
+{"idx": 2010, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999994, "probs": {"A": 0.0, "B": 1.0, "C": 0.0}}
+{"idx": 2013, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 0.999999, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 2015, "pred": "B", "gold": "B", "ok": true, "conf": 1.0, "mass": 1.0, "probs": {"A": 0.0, "B": 1.0, "C": 0.0, "D": 0.0}}
+{"idx": 2016, "pred": "B", "gold": "A", "ok": false, "conf": 0.999934, "mass": 0.999994, "probs": {"A": 6.6e-05, "B": 0.999934}}
