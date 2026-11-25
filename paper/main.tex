@@ -41,12 +41,8 @@
 
 \printAffiliationsAndNotice{}
 
-% Draft status: Introduction, Related Work, Data, and Methods drafted.
-% Experiments, Results and Discussion, Limitations, and Conclusion are still
-% the outline skeleton. Red TODO markers flag numbers or choices that are not settled yet.
-
 \begin{abstract}
-Unsupervised post-training adapts a pre-trained model without human labels by letting the model generate its own training signal. We study whether self-consistency can serve as such a signal for a small vision-language model on visual question answering. Using SmolVLM-500M-Instruct on the image-based questions of ScienceQA, we read the model's probability over the answer options in a single forward pass, keep training questions whose confidence exceeds a threshold, and fine-tune the model on its own predictions with LoRA. Along the way, we find that the position at which option probabilities are read matters: an instruction-tuned model places only 7\% of its probability on the option letters at the end of the prompt, and prefilling ``Answer:'' fixes this. Confidence filtering raises pseudo-label accuracy on the validation split from 64.2\% to 74.3\% at $\tau = 0.9$. In preliminary experiments, however, fine-tuning on the filtered pseudo-labels leaves test accuracy unchanged at 64.8\% and only makes the model more confident, while fine-tuning on ground-truth labels for the same questions reaches 77.2\%. This suggests that self-consistency mostly reinforces what the model already believes. \todo{Update with the $\tau = 0$ run and the full test split.}
+Unsupervised post-training adapts a pre-trained model without human labels by letting the model generate its own training signal. We study whether self-consistency can serve as such a signal for a small vision-language model on visual question answering. Using SmolVLM-500M-Instruct on the image-based questions of ScienceQA, we read the model's probability over the answer options in a single forward pass, keep training questions whose confidence exceeds a threshold, and fine-tune the model on its own predictions with LoRA. Along the way, we find that the position at which option probabilities are read matters: an instruction-tuned model places only 7\% of its probability on the option letters at the end of the prompt, and prefilling ``Answer:'' fixes this. Confidence filtering raises pseudo-label accuracy on the validation split from 64.2\% to 74.3\% at $\tau = 0.9$. Fine-tuning on these pseudo-labels, however, leaves test accuracy unchanged (64.8\%, versus 65.8\% without filtering; neither differs significantly from the base model) and makes the model more confident on its wrong answers. Fine-tuning on ground-truth labels for the same questions reaches 77.2\%. Self-consistency therefore mostly reinforces what the model already believes, which is the mechanism behind error propagation in self-training.
 \end{abstract}
 
 \section{Introduction}
@@ -61,14 +57,14 @@ In this project, we ask whether self-consistency can serve as a reliable unsuper
 \end{quote}
 We study this question with SmolVLM-500M-Instruct \citep{marafioti2025smolvlm} on the image-based questions of ScienceQA \citep{lu2022scienceqa}. Because ScienceQA is multiple choice, consistency can be measured in two ways: by sampling $k$ answers and counting how often the most common one appears, or by reading the model's probability over the answer options from a single forward pass. Our main experiments use the single-pass probability, which is about $k$ times cheaper. We filter pseudo-labels on the training split by this confidence, fine-tune with LoRA \citep{hu2022lora}, and evaluate on the held-out test split. Ground-truth labels are used only for evaluation, for selecting the filtering threshold on the validation split, and for an oracle comparison, never as a training signal for our method.
 
-Our planned contributions are:
+Our contributions are:
 \begin{enumerate}[itemsep=1pt,topsep=2pt]
-  \item A single-forward-pass consistency signal for multiple-choice VQA, the softmax over answer options, with a planned comparison against sampled-mode frequency.
+  \item A single-forward-pass consistency signal for multiple-choice VQA, the softmax over answer options, together with a characterization of how well it separates correct from incorrect pseudo-labels.
   \item A practical finding about reading option probabilities from an instruction-tuned VLM. The position at which the probabilities are read changes the result substantially, and we document how to read them correctly.
-  \item An analysis of whether consistency filtering helps, by comparing filtered pseudo-labels against no filtering ($\tau = 0$) and against ground-truth labels on the same questions (oracle).
-  \item A study of error propagation across repeated rounds of self-training.
+  \item A controlled comparison of fine-tuning on filtered pseudo-labels, on unfiltered pseudo-labels ($\tau = 0$), and on ground-truth labels for the same questions (oracle).
+  \item Evidence for the mechanism of error propagation: self-training inflates the model's confidence on its own errors, which would let more wrong pseudo-labels pass the filter in a later round.
 \end{enumerate}
-In preliminary experiments on a 500-question test subset, fine-tuning on confidence-filtered pseudo-labels leaves accuracy unchanged (64.8\%) while making the model more confident, whereas fine-tuning on ground-truth labels for the same questions raises accuracy to 77.2\%. The bottleneck is therefore the information in the pseudo-labels, not the fine-tuning procedure. \todo{Add the $\tau = 0$ result and confirm on the full test split.}
+On a 500-question test subset, fine-tuning on confidence-filtered pseudo-labels leaves accuracy unchanged (64.8\%) and unfiltered pseudo-labels give 65.8\%, neither significantly different from the base model, while fine-tuning on ground-truth labels for the same questions raises accuracy to 77.2\%. The bottleneck is therefore the information in the pseudo-labels, not the fine-tuning procedure.
 
 \section{Related Work}
 
@@ -117,7 +113,7 @@ We use the official splits with distinct roles:
 \begin{itemize}[itemsep=1pt,topsep=2pt]
   \item \textbf{Train (6,218 questions):} the model generates pseudo-labels on these questions, and the filtered pseudo-labels are used for fine-tuning. Ground-truth answers are used only for the oracle comparison and for measuring pseudo-label quality as a diagnostic.
   \item \textbf{Validation (2,097 questions):} used to select the filtering threshold $\tau$ from the relationship between confidence and pseudo-label accuracy.
-  \item \textbf{Test (2,017 questions):} held out for final evaluation. Preliminary results in this draft use a fixed random subset of 500 test questions (seed 0), so that all methods are compared on the same questions. \todo{Report final results on the full test split.}
+  \item \textbf{Test (2,017 questions):} held out for evaluation. Results in this draft use a fixed random subset of 500 test questions (seed 0), so that all methods are compared on the same questions; the final report will use the full test split.
 \end{itemize}
 
 Each question is formatted as a single user turn in the model's chat template, consisting of the image followed by the question and the lettered options:
@@ -144,20 +140,15 @@ p_\theta(t \mid x) = \frac{\exp(z_t)}{\sum_{t' \in \mathcal{V}} \exp(z_{t'})},
 where $z_t$ are the logits of the final position. All of our consistency signals are derived from this distribution.
 
 \subsection{Self-Consistency Sampling}
-
-\subsubsection{Sampling Parameters}
-For each training question, we draw $k$ independent responses from the model with temperature $T > 0$ and nucleus sampling. Our default setting is $k = 8$, $T = 0.7$, top-$p = 0.95$, and at most 16 new tokens. \todo{The sampling runs are not finished; confirm these settings, or move this subsection to future work if sampling is dropped.}
-
-\subsubsection{Mode and Frequency Extraction}
-Each response is parsed into an option letter. We match standalone letters among the valid options (for example, A--D for a four-option question) in the response, and take the last match, so that responses such as ``Answer: B'' or ``B.'' are parsed as B. Let $a_1, \ldots, a_k$ be the parsed answers. The pseudo-label is the most frequent answer (the mode), and its frequency is the consistency score:
+The classic consistency signal draws $k$ independent responses with temperature $T > 0$ (our planned setting is $k = 8$, $T = 0.7$, top-$p = 0.95$), parses each into an option letter $a_j$ by taking the last standalone valid letter in the response, and uses the most frequent answer as the pseudo-label, with its frequency as the score:
 \begin{align}
 \hat{y}_{\text{mode}}(x) &= \arg\max_{a} \sum_{j=1}^{k} \mathbf{1}[a_j = a], \\
 f(x) &= \frac{1}{k} \max_{a} \sum_{j=1}^{k} \mathbf{1}[a_j = a].
 \end{align}
-Responses with no valid letter count as unparsed. \todo{Specify tie-breaking and how unparsed responses are handled.}
+The sampled-mode runs are not finished, so all experiments in this draft use the single-pass softmax confidence described below. The comparison between the two signals is left for the final report.
 
 \subsection{Consistency Filter}
-Given a consistency score $s(x) \in [0, 1]$, either the mode frequency $f(x)$ or the softmax confidence $c(x)$ defined below, we keep a training question if $s(x) \geq \tau$ and use its pseudo-label $\hat{y}(x)$ as the training target:
+Given a consistency score $s(x) \in [0, 1]$, either the mode frequency $f(x)$ or the softmax confidence $c(x)$ defined below (used in all experiments here), we keep a training question if $s(x) \geq \tau$ and use its pseudo-label $\hat{y}(x)$ as the training target:
 \begin{equation}
 \mathcal{D}_\tau = \{(x, \hat{y}(x)) : x \in \mathcal{D}_{\text{train}},\ s(x) \geq \tau\}.
 \end{equation}
@@ -209,40 +200,102 @@ The renormalized probabilities $\tilde{p}_i(x)$ are meaningful only when the opt
 \subsection{LoRA Fine-Tuning}
 We fine-tune the model on $\mathcal{D}_\tau$ with LoRA \citep{hu2022lora}, which freezes the pre-trained weights and learns low-rank updates to selected weight matrices. Each training example uses the same input as in evaluation, including the `` Answer:'' prefill, followed by the target `` $\hat{y}$'' and the end-of-turn token. The loss is computed only on these two target tokens, so the model is trained to produce the label rather than to reproduce the prompt. We add LoRA adapters to the query, key, value, and output projections and to the MLP projections of every language-model layer, and keep the vision encoder frozen, which gives 4.3M trainable parameters (0.85\% of the model). We use rank $r = 8$, scaling $\alpha = 16$, dropout 0.05, and AdamW with learning rate $2 \times 10^{-4}$, decayed linearly to zero, and gradient clipping at 1.0. Each example is processed individually, with gradients accumulated over 8 examples for an effective batch size of 8, for one epoch. Training runs in bfloat16 on an Apple M-series laptop (MPS backend), with image splitting disabled as above, and takes about 30 minutes for the 3,985-question filtered set.
 
-After fine-tuning, we evaluate each adapter on the test questions with the corrected softmax, which agrees with greedy decoding on 96\% of questions for the base model. For the error-propagation study, the fine-tuned model generates a new set of pseudo-labels on the training split, and the filtering and fine-tuning steps are repeated.
+After fine-tuning, we evaluate each adapter on the test questions with the corrected softmax, which agrees with greedy decoding on 96\% of questions for the base model.
 
 \section{Experiments}
-\subsection{Baselines}
-\subsubsection{Zero-Shot Greedy}
-% 0.6480 (324/500).
-\subsubsection{Corrected Softmax}
-% Agreement rate with greedy; full-500 run optional.
-\subsubsection{Sampled-Mode ($k=8$)}
-% To be run.
-\subsubsection{Oracle and $\tau=0$ Fine-Tuning Comparisons}
-% Planned; isolate the contribution of the consistency filter.
-\subsection{Ablations}
-% k, tau, T, LoRA rank, training epochs.
-\subsection{Error-Propagation Study}
-% Accuracy vs. number of post-training rounds.
+
+\subsection{Compared Models}
+We compare four models on the same 500 test questions:
+\begin{itemize}[itemsep=1pt,topsep=2pt]
+  \item \textbf{Base:} zero-shot SmolVLM-500M-Instruct, evaluated with greedy decoding and with the corrected softmax.
+  \item \textbf{Filtered ($\tau = 0.9$):} LoRA on the 3,985 training questions with $c(x) \geq 0.9$, labeled with the model's own predictions.
+  \item \textbf{No filter ($\tau = 0$):} LoRA on all 6,218 training questions, labeled with the model's own predictions.
+  \item \textbf{Oracle:} LoRA on the same 3,985 questions as the filtered run, labeled with the ground truth.
+\end{itemize}
+All three fine-tuned models use the same hyperparameters, seed, and number of epochs, so the only differences are which questions are used and which labels they carry.
+
+\subsection{Metrics}
+We report accuracy on the test subset. Because all models answer the same questions, we compare each fine-tuned model to the base model with an exact McNemar test on the paired predictions \citep{dietterich1998tests}, and report how many questions flip from wrong to right (fixed) and from right to wrong (broken). To measure how fine-tuning changes the model's beliefs, we also report the mean confidence $c(x)$, the mean confidence on the questions the model answers incorrectly, and the number of questions with $c(x) \geq 0.99$.
+
+\subsection{Ablations in This Draft}
+Besides the filtering comparison, we ran three design checks that the main experiments depend on: the read position of the option probabilities (\cref{sec:read-position-results}), image splitting on versus off (64.8\% accuracy in both settings, with the two settings disagreeing on 71 questions, 29 corrected in each direction), and the threshold $\tau$ (\cref{fig:tau}). Ablations over $k$, $T$, the LoRA rank, and the number of epochs, and a second round of self-training, are planned for the final report.
 
 \section{Results and Discussion}
-\subsection{Baseline Results}
-\subsection{Post-Fine-Tuning Results}
-\subsubsection{Against Greedy Baseline}
-\subsubsection{Against Oracle and $\tau=0$}
+
+\subsection{Baselines and Read Position}
+\label{sec:read-position-results}
+The base model reaches 64.8\% (324/500) with greedy decoding, well above uniform random guessing (36.0\%) and always answering ``B'' (37.2\%). The corrected softmax reaches the same 64.8\% and agrees with greedy decoding on 482 of 500 questions; on the 18 disagreements, each method is right on 8 (McNemar $p = 1$). The earlier softmax result of 67.0\% and its 25\% disagreement with greedy decoding were therefore an artifact of the read position, not evidence that the two methods capture different information. For context, \citet{lu2022scienceqa} report 75.17\% for few-shot chain-of-thought prompting with GPT-3 on the full ScienceQA test set, which includes the text-only questions, so the numbers are not directly comparable but show the gap between a 500M-parameter model and much larger ones.
+
 \subsection{Pseudo-Label Quality}
-\subsection{Error Propagation}
+\Cref{fig:tau} and \cref{tab:tau} show the coverage--precision trade-off of the softmax confidence. Raising $\tau$ steadily increases pseudo-label accuracy, from 64.2\% with no filtering to 74.3\% at $\tau = 0.9$ and 81.2\% at $\tau = 0.99$ on validation, while the fraction of questions kept falls from 100\% to 45\%. The curves for validation and train have the same shape, which suggests that a threshold chosen on validation transfers to the training split. Even at the strictest threshold, however, about one in five kept pseudo-labels is wrong. The model is often confidently wrong, so no threshold yields a clean training set.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_tau.pdf}
+\caption{Pseudo-label accuracy of the base model against the fraction of questions kept, as the softmax-confidence threshold $\tau$ increases from 0 (right) to 0.99 (left). Accuracy is measured against ground truth as a diagnostic only.}
+\label{fig:tau}
+\end{figure}
+
+\subsection{Post-Fine-Tuning Results}
+\Cref{tab:finetune} and \cref{fig:finetune} summarize the fine-tuning runs.
+
+\textbf{Against the base model.} Fine-tuning on the filtered pseudo-labels leaves test accuracy exactly unchanged at 64.8\%: 13 questions are fixed and 13 are broken. Without filtering, accuracy is 65.8\% (14 fixed, 9 broken), which is not a significant difference ($p = 0.40$). Neither form of self-training improves the model.
+
+\textbf{Against the oracle and $\tau = 0$.} Training on the same 3,985 questions with ground-truth labels raises accuracy to 77.2\%, fixing 81 questions and breaking 19 ($p < 0.001$). The fine-tuning procedure therefore works, and the difference between the filtered and oracle runs comes entirely from the labels. Of the 3,985 filtered pseudo-labels, 876 (22.0\%) are wrong; the oracle corrects them, while the filtered run trains on them. Filtering, in turn, does not help relative to $\tau = 0$: the unfiltered run is slightly better, although the difference is within noise. The training losses explain why. On the filtered set, the average loss over the first 20 updates is only 0.0045, because the model already assigns nearly all of its probability to its own confident predictions, so there is almost nothing to learn. The unfiltered set has a higher initial loss (0.074) because it includes low-confidence questions, and the oracle set has the highest (0.40) because about a fifth of its labels disagree with the model.
+
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrrr}
+\toprule
+Model & Train Qs & Test acc. & Fixed / broken & McNemar $p$ & Mean $c(x)$ & Mean $c(x)$, wrong & \# $c(x) \geq 0.99$ \\
+\midrule
+Base (zero-shot) & -- & 64.8\% & -- & -- & 0.872 & 0.798 & 231 \\
+Filtered, $\tau = 0.9$ & 3,985 & 64.8\% & 13 / 13 & 1.00 & 0.956 & 0.925 & 372 \\
+No filter, $\tau = 0$ & 6,218 & 65.8\% & 14 / 9 & 0.40 & 0.954 & 0.931 & 374 \\
+Oracle (gold labels) & 3,985 & \textbf{77.2\%} & 81 / 19 & $<0.001$ & 0.838 & 0.665 & 199 \\
+\bottomrule
+\end{tabular}
+\caption{Fine-tuning results on the 500-question test subset. Fixed and broken count questions that flip from wrong to right and from right to wrong relative to the base model. Confidence is the corrected softmax confidence $c(x)$.}
+\label{tab:finetune}
+\end{table*}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_finetune.pdf}
+\caption{Test accuracy on the 500-question subset. The dashed line marks the base model.}
+\label{fig:finetune}
+\end{figure}
+
+\subsection{Confidence Inflation and Error Propagation}
+Although self-training does not change accuracy, it changes the model's confidence. After training on filtered pseudo-labels, the number of test questions with $c(x) \geq 0.99$ rises from 231 to 372, and the mean confidence on the questions the model still gets wrong rises from 0.798 to 0.925. \Cref{fig:confidence} shows this shift across the whole distribution of errors: after self-training on filtered pseudo-labels, 71\% of the remaining errors are made with confidence above 0.95, compared with 38\% for the base model. The oracle run moves in the opposite direction, lowering the confidence on its remaining errors to 0.665.
+
+This is the mechanism behind error propagation \citep{arazo2020confirmation}. In a second round, the self-trained model would generate new pseudo-labels, and because its wrong answers are now far more confident, more of them would pass the same threshold $\tau$. Filtering by confidence would therefore become less selective with each round, even though accuracy stays flat. We plan to test this directly in the final report by measuring the pseudo-label accuracy of the self-trained model at each $\tau$, and by tracking flip rates and accuracy across rounds.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_confidence.pdf}
+\caption{Cumulative distribution of confidence $c(x)$ on the test questions each model answers incorrectly. Curves further to the right mean more confident errors.}
+\label{fig:confidence}
+\end{figure}
+
+\subsection{Comparison with Prior Work}
+\citet{huang2023selfimprove} report that large language models improve by fine-tuning on their own majority-vote answers. Two differences may explain why we see no gain. First, their pseudo-labels include full chain-of-thought rationales, so training on them can teach new reasoning patterns, whereas our targets are single option letters that carry no information beyond what the model already predicts. Second, their models are orders of magnitude larger and better calibrated \citep{kadavath2022know}, while our 500M-parameter model is wrong on about 20\% of the questions it is most confident about. Our results are consistent with the confirmation-bias view of pseudo-labeling \citep{arazo2020confirmation}: without an outside signal to correct the confidently wrong labels, self-training reinforces the model's existing beliefs.
 
 \section{Limitations and Threats to Validity}
-% Single GPU, single model, single dataset for main experiments;
-% hint field not used; VQAv2 stretch only.
-% Image splitting disabled (accuracy unchanged on the 500-question subset).
-% Softmax confidence is informative but not calibrated (c >= 0.99 is 81% correct on validation).
-% Possible letter bias: the base model predicts B on 264/500 test questions, while 186 answers are B.
-% Preliminary results are single runs on a 500-question subset.
+\begin{itemize}[itemsep=1pt,topsep=2pt]
+  \item \textbf{Scope.} We study a single small model, a single dataset, and one round of fine-tuning with one set of hyperparameters and one seed. The conclusions may differ for larger or better-calibrated models.
+  \item \textbf{Evaluation size.} All test results use a 500-question subset, so differences of one or two points are within noise. We report paired significance tests for this reason, and will evaluate on the full test split for the final report.
+  \item \textbf{Consistency signal.} All experiments use the single-pass softmax confidence. The sampled-mode signal ($k = 8$) has not been run, so we cannot yet say whether it would select different or better pseudo-labels.
+  \item \textbf{Input choices.} The prompts omit the \texttt{hint} field, and image splitting is disabled. Splitting did not change base accuracy on the test subset, but it may interact with fine-tuning.
+  \item \textbf{Letter bias and imbalance.} The base model predicts ``B'' on 264 of 500 test questions, while only 186 answers are ``B'' \citep{zheng2024selectionbias}. Filtering by confidence may also over-represent easier question types, which can bias the fine-tuned model.
+  \item \textbf{Calibration.} The softmax confidence is informative but not calibrated (questions with $c(x) \geq 0.99$ are 81.2\% correct on validation), and we use it without recalibration.
+\end{itemize}
 
 \section{Conclusion}
+We asked whether a small vision-language model can improve on visual question answering by training on its own high-consensus outputs. Reading option probabilities at the correct position gives a cheap, single-pass consistency signal that clearly separates more reliable from less reliable pseudo-labels. Fine-tuning on these pseudo-labels, however, does not improve accuracy, with or without filtering, while fine-tuning on ground-truth labels for the same questions improves it by 12.4 points. Self-training mainly makes the model more confident in what it already believes, including its mistakes, which is how errors propagate across rounds.
+
+For the final report, we plan to (1) evaluate on the full test split, (2) compare the softmax confidence with the sampled-mode signal at $k = 8$, (3) run a second round of self-training to measure error propagation directly, (4) ablate $\tau$, the LoRA rank, and the number of epochs, and (5) test whether adding the \texttt{hint} field or recalibrating the confidence changes the outcome.
 
 \bibliography{references}
 \bibliographystyle{icml2026}
