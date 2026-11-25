@@ -1,0 +1,13 @@
+{
+  "train": "../data/pseudolabels/tau0.jsonl",
+  "out": "../checkpoints/tau0",
+  "max_examples": null,
+  "epochs": 1,
+  "lr": 0.0002,
+  "grad_accum": 8,
+  "rank": 8,
+  "alpha": 16,
+  "dropout": 0.05,
+  "seed": 0,
+  "no_image_splitting": true
+}
