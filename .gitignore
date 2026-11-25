@@ -33,3 +33,7 @@ outputs/
 
 # OS
 .DS_Store
+grad-project-firstdraft.tex
+
+# Pandoc keep-tex outputs
+grad-project-*.tex
