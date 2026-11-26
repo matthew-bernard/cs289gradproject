@@ -8,11 +8,10 @@ own high-consensus outputs (no ground-truth labels used for the training signal)
 measure the effect on ScienceQA accuracy.
 
 ## Documents
-- First draft, ICML template (with fine-tuning results and figures): `paper/main.tex` / `paper/main.pdf`
-- First draft: `grad-project-firstdraft.qmd` / `grad-project-firstdraft.pdf`
-- Progress report: `grad-project-progress.qmd` / `grad-project-progress.pdf`
-- Outline: `grad-project-outline.qmd` / `grad-project-outline.pdf`
-- Proposal: `grad-project-proposal.qmd` / `grad-project-proposal.pdf`
+- First draft, ICML template (with fine-tuning results and figures): `first-draft/first-draft.tex` / `first-draft/first-draft.pdf`
+- Progress report: `progress.qmd` / `progress.pdf`
+- Outline: `outline.qmd` / `outline.pdf`
+- Proposal: `proposal.qmd` / `proposal.pdf`
 
 ## Data
 - Main: `lmms-lab/ScienceQA-IMG` (image-only) — 6,218 / 2,097 / 2,017 train/val/test
